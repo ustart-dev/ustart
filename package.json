@@ -1,0 +1,22 @@
+{
+  "name": "ustart",
+  "version": "1.0.0",
+  "description": "uStart is a framework for building GraphQL backends base on graphql-yoga, sequelize and mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "graphql",
+    "graphql framework",
+    "sequelize",
+    "mongoose",
+    "postgres",
+    "mysql",
+    "mariadb",
+    "mongodb",
+    "sqlite",
+    "mssql",
+  ],
+  "author": "Leonel Peña <leonel@ustart.dev>"
+}
