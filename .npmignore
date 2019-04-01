@@ -1,0 +1,4 @@
+# See https://docs.npmjs.com/misc/developers for more information.
+
+# we do not include the source folder into de npm package
+#src
