@@ -2,6 +2,19 @@
   "name": "ustart",
   "version": "1.0.0",
   "description": "uStart is a framework for building GraphQL backends based on graphql-yoga, sequelize and mongoose",
+  "keywords": [
+    "graphql",
+    "graphql framework",
+    "sequelize",
+    "mongoose",
+    "postgres",
+    "mysql",
+    "mariadb",
+    "mongodb",
+    "sqlite",
+    "mssql"
+  ],
+  "author": "Leonel Peña <leonel@ustart.dev>",
   "main": "./dist/lib/index.js",
   "scripts": {
     "build": "babel src -d dist",
@@ -34,17 +47,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1"
   },
-  "keywords": [
-    "graphql",
-    "graphql framework",
-    "sequelize",
-    "mongoose",
-    "postgres",
-    "mysql",
-    "mariadb",
-    "mongodb",
-    "sqlite",
-    "mssql"
-  ],
-  "author": "Leonel Peña <leonel@ustart.dev>"
+  "files": [
+    "dist",
+    "template"
+  ]
 }
