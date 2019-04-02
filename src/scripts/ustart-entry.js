@@ -1,3 +1,5 @@
+// dotenv import getted from https://github.com/motdotla/dotenv/issues/89#issuecomment-477282040
+import {} from "dotenv/config";
 import { GraphQLServer } from "graphql-yoga";
 import {
   makeExecutableSchema,
