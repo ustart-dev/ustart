@@ -28,7 +28,6 @@
 */
 import { ustart } from "../connectors/ustart";
 import {
-  SERVER_MODE,
   SRC_DATA_DIR
 } from "../constants";
 const populateBasicData = require(`${SRC_DATA_DIR}/basicDataMocking`).populateBasicData;
@@ -37,24 +36,24 @@ const testingMocking = require(`${SRC_DATA_DIR}/testingMocking`).testingMocking;
 
 async function loadDatabaseData() {
 
-  console.log(`Server mode: ${SERVER_MODE}`);
   console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 
-  if (SERVER_MODE === "PRODUCTION") {
+  if (process.env.NODE_ENV === "production") {
     // NOTE: Jamás agregar { force: true } en modo producción
     // postgres.sync(): sincroniza los modelos de sequelize que no están creados en la
     // BD, al añadir
     await ustart.syncDatasources();
     await populateBasicData();
-  } else if (SERVER_MODE === "DEV") {
+  } else if (process.env.NODE_ENV === "development") {
     await ustart.syncDatasources();
     await populateBasicData();
-  } else if (SERVER_MODE === "DEV-CLEAN") {
+  } else if (process.env.NODE_ENV === "DEV-CLEAN") {
+    // TODO: Re-evaluar este MODO
     // Toda BD para ser destruida debe terminar en "_test" (sin las comillas).
     await ustart.syncDatasources({ force: true, match: /_test$/ });
     await populateBasicData();
     await populateFakeData();
-  } else if (SERVER_MODE === "TESTING") {
+  } else if (process.env.NODE_ENV === "testing") {
     // Toda BD para ser destruida debe terminar en "_test" (sin las comillas).
     await ustart.syncDatasources({ force: true, match: /_test$/ });
     await populateBasicData();

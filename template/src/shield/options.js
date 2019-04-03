@@ -4,10 +4,9 @@
  * y sus atributos corresponden a los descritos en su documentación.
  * Documentación: https://github.com/maticzav/graphql-shield#options
 */
-import { SERVER_MODE } from "ustart";
 const shieldOptions = {
-  allowExternalErrors: SERVER_MODE !== "PRODUCTION",
-  debug: SERVER_MODE !== "PRODUCTION",
+  allowExternalErrors: process.env.NODE_ENV !== "production",
+  debug: process.env.NODE_ENV !== "production",
   // fallbackRule:
   // fallbackError:
 };

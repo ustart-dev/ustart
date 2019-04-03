@@ -4,12 +4,6 @@
 import appRoot from "app-root-path";
 
 /**
- * Entorno en que se ejecuta el servidor: "PRODUCTION", "DEV", "DEV-CLEAN", "TESTING".
- * Mayor documentación sobre que realiza cada modo en data/mocks.js
-*/
-export const SERVER_MODE = process.env.SERVER_MODE;
-
-/**
  * Define la ruta relativa de la carpeta plugins.
 */
 export const PLUGINS_DIR = "plugins";
