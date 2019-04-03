@@ -38,6 +38,7 @@ const testingMocking = require(`${SRC_DATA_DIR}/testingMocking`).testingMocking;
 async function loadDatabaseData() {
 
   console.log(`Server mode: ${SERVER_MODE}`);
+  console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 
   if (SERVER_MODE === "PRODUCTION") {
     // NOTE: Jamás agregar { force: true } en modo producción

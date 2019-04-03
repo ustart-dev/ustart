@@ -1,16 +1,16 @@
-// dotenv import getted from https://github.com/motdotla/dotenv/issues/89#issuecomment-477282040
-import {} from "dotenv/config";
-import { GraphQLServer } from "graphql-yoga";
-import {
+require("dotenv").config();
+const { GraphQLServer } = require("graphql-yoga");
+const {
   makeExecutableSchema,
   addMockFunctionsToSchema
-} from "graphql-tools";
-import { shield } from "graphql-shield";
-import "../../../../src/data/datasources";
-import shieldOptions from "../../../../src/shield/options";
-import expressMiddlewares from "../../../../src/middlewares/express";
-import graphqlMiddlewares from "../../../../src/middlewares/graphql";
-import {
+} = require("graphql-tools");
+const { shield } = require("graphql-shield");
+const { SRC_DIR } = require("../lib/constants");
+require(`${SRC_DIR}/data/datasources`);
+const shieldOptions = require(`${SRC_DIR}/shield/options`).default;
+const expressMiddlewares = require(`${SRC_DIR}/middlewares/express`).default;
+const graphqlMiddlewares = require(`${SRC_DIR}/middlewares/graphql`).default;
+const {
   loadModels,
   loadTypeDefs,
   loadResolvers,
@@ -19,7 +19,7 @@ import {
   loadDatabaseData,
   loadSchemaDirectives,
   createContext,
-} from "../lib/helpers";
+} = require("../lib/helpers");
 
 loadModels();
 

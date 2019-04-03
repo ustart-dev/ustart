@@ -10,11 +10,6 @@ import appRoot from "app-root-path";
 export const SERVER_MODE = process.env.SERVER_MODE;
 
 /**
- * Define la ruta relativa de la carpeta entities.
-*/
-export const ENTITIES_DIR = "src/entities";
-
-/**
  * Define la ruta relativa de la carpeta plugins.
 */
 export const PLUGINS_DIR = "plugins";
@@ -46,9 +41,15 @@ export const MODELS_GLOB = "**/*.model.*";
 export const FASTMOCKS_GLOB = "**/mocks/*.mocks.*";
 
 /**
- * Define la ruta absoluta del directorio src
+ * Define la ruta absoluta del directorio sources. Si NODE_ENV
+ * es 'development' se carga 'src'; en caso contrario 'dist'.
 */
-export const SRC_DIR = `${appRoot}/src`;
+export const SRC_DIR = `${appRoot}/${process.env.NODE_ENV === 'development' ? 'src' : 'dist'}`;
+
+/**
+ * Define la ruta relativa de la carpeta entities.
+*/
+export const ENTITIES_DIR = `${SRC_DIR}/entities`;
 
 /**
  * Define la ruta absoluta del directorio de datos para la BD
