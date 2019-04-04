@@ -9,15 +9,15 @@ import {
 } from "merge-graphql-schemas";
 import appRoot from "app-root-path";
 import {
-  ENTITIES_DIR,
-  PLUGINS_DIR,
+  ENTITIES_PATH,
+  PLUGINS_PATH,
   TYPES_GLOB,
   EMPTY_QUERY
 } from "../constants";
 
 function loadTypeDefs() {
   const files = fileLoader(
-    path.join(appRoot.toString(), `{/${ENTITIES_DIR}/${TYPES_GLOB},/${PLUGINS_DIR}/${TYPES_GLOB}}`)
+    `{${ENTITIES_PATH}/${TYPES_GLOB},${PLUGINS_PATH}/${TYPES_GLOB}}`
   );
 
   let typeDefs = null;

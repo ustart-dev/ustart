@@ -5,11 +5,14 @@ const {
   addMockFunctionsToSchema
 } = require("graphql-tools");
 const { shield } = require("graphql-shield");
-const { SRC_DIR } = require("../lib/constants");
-require(`${SRC_DIR}/data/datasources`);
-const shieldOptions = require(`${SRC_DIR}/shield/options`).default;
-const expressMiddlewares = require(`${SRC_DIR}/middlewares/express`).default;
-const graphqlMiddlewares = require(`${SRC_DIR}/middlewares/graphql`).default;
+const {
+  SRC_PATH,
+  DATA_PATH
+} = require("../lib/constants");
+require(`${DATA_PATH}/datasources`);
+const shieldOptions = require(`${SRC_PATH}/shield/options`).default;
+const expressMiddlewares = require(`${SRC_PATH}/middlewares/express`).default;
+const graphqlMiddlewares = require(`${SRC_PATH}/middlewares/graphql`).default;
 const {
   loadModels,
   loadTypeDefs,

@@ -30,8 +30,8 @@ import {
   cloneDeep as _cloneDeep
 } from "lodash";
 import {
-  ENTITIES_DIR,
-  PLUGINS_DIR,
+  ENTITIES_PATH,
+  PLUGINS_PATH,
   FASTMOCKS_GLOB
 } from "../constants";
 
@@ -39,7 +39,7 @@ function loadFastMocking() {
   const fastMocks = {};
 
   fileLoader(
-    path.join(appRoot.toString(), `{/${ENTITIES_DIR}/${FASTMOCKS_GLOB},/${PLUGINS_DIR}/${FASTMOCKS_GLOB}}`),
+    `{${ENTITIES_PATH}/${FASTMOCKS_GLOB},/${PLUGINS_PATH}/${FASTMOCKS_GLOB}}`,
     { all: true, extensions: ['.js'] }
   ).forEach(
     e => _merge(fastMocks, e)

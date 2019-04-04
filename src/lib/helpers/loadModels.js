@@ -9,18 +9,18 @@ import {
 } from "merge-graphql-schemas";
 import appRoot from "app-root-path";
 import {
-  ENTITIES_DIR,
-  PLUGINS_DIR,
+  ENTITIES_PATH,
+  PLUGINS_PATH,
   MODELS_GLOB,
-  SRC_DIR
+  SRC_PATH
 } from "../constants";
 
 function loadModels() {
   fileLoader(
-    path.join(appRoot.toString(), `{/${ENTITIES_DIR}/${MODELS_GLOB},/${PLUGINS_DIR}/${MODELS_GLOB}}`),
+    `{${ENTITIES_PATH}/${MODELS_GLOB},${PLUGINS_PATH}/${MODELS_GLOB}}`,
     { all: true, extensions: ['.js'] }
   );
-  require(`${SRC_DIR}/models/associations`);
+  require(`${SRC_PATH}/models/associations`);
 };
 
 export { loadModels };

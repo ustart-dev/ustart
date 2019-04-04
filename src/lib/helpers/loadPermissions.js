@@ -13,8 +13,8 @@ import {
   merge as _merge,
 } from "lodash";
 import {
-  ENTITIES_DIR,
-  PLUGINS_DIR,
+  ENTITIES_PATH,
+  PLUGINS_PATH,
   PERMISSIONS_GLOB
 } from "../constants";
 
@@ -22,7 +22,7 @@ function loadPermissions() {
   const permissions = {};
 
   fileLoader(
-    path.join(appRoot.toString(), `{/${ENTITIES_DIR}/${PERMISSIONS_GLOB},/${PLUGINS_DIR}/${PERMISSIONS_GLOB}}`),
+    `{${ENTITIES_PATH}/${PERMISSIONS_GLOB},${PLUGINS_PATH}/${PERMISSIONS_GLOB}}`,
     { all: true, extensions: ['.js'] }
   ).forEach(
     e => _merge(permissions, e)

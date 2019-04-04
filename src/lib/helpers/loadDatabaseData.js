@@ -27,12 +27,10 @@
  *
 */
 import { ustart } from "../connectors/ustart";
-import {
-  SRC_DATA_DIR
-} from "../constants";
-const populateBasicData = require(`${SRC_DATA_DIR}/basicDataMocking`).populateBasicData;
-const populateFakeData = require(`${SRC_DATA_DIR}/fakeDataMocking`).populateFakeData;
-const testingMocking = require(`${SRC_DATA_DIR}/testingMocking`).testingMocking;
+import { DATA_PATH } from "../constants";
+const populateBasicData = require(`${DATA_PATH}/basicDataMocking`).populateBasicData;
+const populateFakeData = require(`${DATA_PATH}/fakeDataMocking`).populateFakeData;
+const testingMocking = require(`${DATA_PATH}/testingMocking`).testingMocking;
 
 async function loadDatabaseData() {
 

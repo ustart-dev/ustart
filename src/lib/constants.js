@@ -4,11 +4,6 @@
 import appRoot from "app-root-path";
 
 /**
- * Define la ruta relativa de la carpeta plugins.
-*/
-export const PLUGINS_DIR = "plugins";
-
-/**
  * Define el glob para cargar los tipos de graphql.
  * Documentación de glob: https://www.npmjs.com/package/glob
 */
@@ -35,30 +30,65 @@ export const MODELS_GLOB = "**/*.model.*";
 export const FASTMOCKS_GLOB = "**/mocks/*.mocks.*";
 
 /**
- * Define la ruta absoluta del directorio sources. Si NODE_ENV
+ * Define el directorio de fuentes. Si NODE_ENV
  * es 'development' se carga 'src'; en caso contrario 'dist'.
 */
-export const SRC_DIR = `${appRoot}/${process.env.NODE_ENV === 'development' ? 'src' : 'dist'}`;
+export const SRC_DIR = process.env.NODE_ENV === "development" ? "src" : "dist";
 
 /**
- * Define la ruta relativa de la carpeta entities.
+ * Define la ruta absoluta del directorio fuentes.
 */
-export const ENTITIES_DIR = `${SRC_DIR}/entities`;
+export const SRC_PATH = `${appRoot}/${SRC_DIR}`;
 
 /**
- * Define la ruta absoluta del directorio de datos para la BD
+ * Directorio de plugins.
 */
-export const SRC_DATA_DIR = `${SRC_DIR}/data`;
+export const PLUGINS_DIR = "plugins";
 
 /**
- * Define la ruta absoluta del directorio de suscripcion
+ * Ruta absoluta al directorio de plugins.
 */
-export const SUBSCRIPTION_DIR = `${SRC_DIR}/subscription`;
+export const PLUGINS_PATH = `${appRoot}/${PLUGINS_DIR}`;
 
 /**
- * Define la ruta absoluta del directorio de directivas de esquema
+ * Directorio de entidades.
 */
-export const DIRECTIVES_DIR = `${SRC_DIR}/directives`;
+export const ENTITIES_DIR = "entities";
+
+/**
+ * Ruta absoluta al directorio de entidades.
+*/
+export const ENTITIES_PATH = `${SRC_PATH}/${ENTITIES_DIR}`;
+
+/**
+ * Directorio de datos para la BD.
+*/
+export const DATA_DIR = "data";
+
+/**
+ * Ruta absoluta al directorio de datos.
+*/
+export const DATA_PATH = `${SRC_PATH}/${DATA_DIR}`;
+
+/**
+ * Directorio de suscripciones.
+*/
+export const SUBSCRIPTION_DIR = "subscription";
+
+/**
+ * Ruta absoluta al directorio de suscripciones.
+*/
+export const SUBSCRIPTION_PATH = `${SRC_PATH}/${SUBSCRIPTION_DIR}`;
+
+/**
+ * Directorio de directivas de esquema.
+*/
+export const DIRECTIVES_DIR = "directives";
+
+/**
+ * Ruta absoluta de directivas de esquema.
+*/
+export const DIRECTIVES_PATH = `${SRC_PATH}/${DIRECTIVES_DIR}`;
 
 /**
  * Query vacía. Se utiliza cuando no se encuentra ningún tipo definido.

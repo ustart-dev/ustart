@@ -8,17 +8,17 @@ import {
 } from "merge-graphql-schemas";
 import appRoot from "app-root-path";
 import {
-  ENTITIES_DIR,
-  PLUGINS_DIR,
+  ENTITIES_PATH,
+  PLUGINS_PATH,
   RESOLVERS_GLOB
 } from "../constants";
 
 function loadResolvers() {
   return mergeResolvers(
     fileLoader(
-      path.join(appRoot.toString(), `{/${ENTITIES_DIR}/${RESOLVERS_GLOB},/${PLUGINS_DIR}/${RESOLVERS_GLOB}}`)
-    ),
-    { all: true }
+      `{${ENTITIES_PATH}/${RESOLVERS_GLOB},${PLUGINS_PATH}/${RESOLVERS_GLOB}}`,
+      { all: true }
+    )
   );
 };
 

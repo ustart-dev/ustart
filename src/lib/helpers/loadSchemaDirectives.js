@@ -3,10 +3,10 @@
  * Docs: https://www.apollographql.com/docs/graphql-tools/schema-directives.html
 */
 import {
-  DIRECTIVES_DIR
+  DIRECTIVES_PATH
 } from "../constants";
 
-const directives = require(DIRECTIVES_DIR);
+const directives = require(DIRECTIVES_PATH);
 
 function loadSchemaDirectives() {
   return directives && directives.schemaDirectives || null;
