@@ -91,6 +91,16 @@ export const DIRECTIVES_DIR = "directives";
 export const DIRECTIVES_PATH = `${SRC_PATH}/${DIRECTIVES_DIR}`;
 
 /**
+ * Directorio de configuraciones de las fuentes.
+*/
+export const CONFIG_DIR = "config";
+
+/**
+ * Ruta absoluta configuraciones de las fuentes.
+*/
+export const CONFIG_PATH = `${SRC_PATH}/${CONFIG_DIR}`;
+
+/**
  * Query vacía. Se utiliza cuando no se encuentra ningún tipo definido.
 */
 export const EMPTY_QUERY = `

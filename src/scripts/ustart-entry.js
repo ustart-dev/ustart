@@ -7,7 +7,8 @@ const {
 const { shield } = require("graphql-shield");
 const {
   SRC_PATH,
-  DATA_PATH
+  DATA_PATH,
+  CONFIG_PATH
 } = require("../lib/constants");
 require(`${DATA_PATH}/datasources`);
 const shieldOptions = require(`${SRC_PATH}/shield/options`).default;
@@ -23,6 +24,7 @@ const {
   loadSchemaDirectives,
   createContext,
 } = require("../lib/helpers");
+const yogaOptions = require(`${CONFIG_PATH}/yoga`);
 
 loadModels();
 
@@ -67,11 +69,7 @@ const graphQLServer = new GraphQLServer({
 // Se cargan los middleware de express
 expressMiddlewares && expressMiddlewares.forEach(m => graphQLServer.express.use(m));
 
-const port = parseInt(process.env.GRAPHQL_ENDPOINT_PORT, 10) || 4000;
-
-const options = {
-  port,
-  tracing: true,
-  cacheControl: true
-};
-graphQLServer.start(options, () => console.log(`Server is running on http://localhost:${port}`));
+graphQLServer.start(
+  yogaOptions.options,
+  () => console.log(`Server is running on http://localhost:${yogaOptions.options.port}`)
+);
