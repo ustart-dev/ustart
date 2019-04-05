@@ -17,8 +17,10 @@
   "author": "Leonel Peña <leonel@ustart.dev>",
   "main": "./dist/lib/index.js",
   "scripts": {
-    "build": "babel src -d dist",
-    "pack:test": "npm run build && npm pack && mv ustart-*.tgz ../",
+    "clean": "rm -rf dist",
+    "build:dev": "npm run clean && babel src -d dist --copy-files",
+    "build": "npm run clean && babel --copy-files --no-comments --minified src -d dist",
+    "pack:test": "npm run build:dev && npm pack && mv ustart-*.tgz ../",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
