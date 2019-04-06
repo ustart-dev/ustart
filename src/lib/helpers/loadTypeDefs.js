@@ -1,7 +1,3 @@
-/**
- * Busca y carga los tipos de graphql.
- * Si no encuentra ningún tipo, retorna la query "_EMPTY_".
-*/
 import path from "path";
 import {
   fileLoader,
@@ -15,6 +11,10 @@ import {
   EMPTY_QUERY
 } from "../constants";
 
+/**
+ * Loads the graphql types. If there is no type to load, it returns an empty
+ * query: "_EMPTY_".
+*/
 function loadTypeDefs() {
   const files = fileLoader(
     `{${ENTITIES_PATH}/${TYPES_GLOB},${PLUGINS_PATH}/${TYPES_GLOB}}`

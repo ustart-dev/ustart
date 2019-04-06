@@ -3,7 +3,7 @@
 const Utils = {};
 
 /**
- * Resuelve la librería que utiliza el datasource proporcionado.
+ * Returns the library used by datasource.
 */
 Utils.datasourceToLibrary = function (datasource) {
   if (typeof datasource !== "string") {

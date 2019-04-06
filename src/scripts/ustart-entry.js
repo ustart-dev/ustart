@@ -30,10 +30,8 @@ loadModels();
 
 loadDatabaseData();
 
-// Se cargan y fusionan los tipos (esquema GraphQL)
 const typeDefs = loadTypeDefs();
 
-// Se cargan los resolutores
 const resolvers = loadResolvers();
 
 const permissions = loadPermissions();
@@ -46,8 +44,8 @@ const schema = makeExecutableSchema({
   schemaDirectives
 });
 
-// En Modo FAST_MOCKING no se cargan los middlewares, ya que se desea que el
-// backend simplemente responda con datos.
+// FAST_MOCKING mode does not load graphql middlewares, because the idea is
+// that the backend responde with simple data.
 let middlewares = null;
 
 if (process.env.FAST_MOCKING == "true") {
@@ -55,18 +53,17 @@ if (process.env.FAST_MOCKING == "true") {
   addMockFunctionsToSchema({ schema, mocks: fastMocks });
   console.log("Fast mocking enabled!");
 } else {
+  // permissions middlewares are loaded first, otherwise they will not work correctly.
   middlewares = [shield(permissions, shieldOptions)].concat(graphqlMiddlewares);
 }
 
-// middlewares: Se fusionan los middlewares definidos por el usuario (src/middlewares)
-// con los permisos de usuario.
 const graphQLServer = new GraphQLServer({
   schema,
   middlewares,
   context: createContext(),
 });
 
-// Se cargan los middleware de express
+// It loads the express middlewares
 expressMiddlewares && expressMiddlewares.forEach(m => graphQLServer.express.use(m));
 
 graphQLServer.start(

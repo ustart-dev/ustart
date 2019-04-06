@@ -1,25 +1,3 @@
-/**
- * Busca, carga y fusiona los mocking rápidos de las entidades y plugins.
- * La entidad principal a la que pertenece el
- * mock debe ser definida como una función que retorna un objeto literal.
- * Por ejemplo:
-
-  User: () => ({
-    id: ....
-  })
-
- * Sin embargo esto NO es así con "Query" y "Mutation", ya que estas deben
- * ser definidas como objetos, los cuales serán fusionados entre sí con el resto
- * de los mocks definidos en las demás entidades.
-
- Query: {
-    allUsers: ....
- }
-
- * Para ejecutar correctamente las Query y Mutation definidas como objetos
- * estás son convertidas manualmente a funciones que retornan objetos literales.
- * Docs: https://github.com/apollographql/graphql-tools/blob/master/docs/source/mocking.md
-*/
 import path from "path";
 import {
   fileLoader
@@ -35,6 +13,26 @@ import {
   FASTMOCKS_GLOB
 } from "../constants";
 
+/**
+ * Search, load and merge fast mocking from entities and plugins.
+ * The root type of the mock function must be defined as a function that return a literal object.
+ * For example:
+
+  User: () => ({
+    id: ....
+  })
+
+ * This is not the case for "Query" and "Mutation" which must be defined as objects.
+ * These objects will be merged with the rest of fast mocks defined in entities and plugins.
+
+ Query: {
+    allUsers: ....
+ }
+
+ * We have to convert the merged Query and Mutation fields defined as objects into
+ * functions that return literal objects to be able to execute them.
+ * Docs: https://github.com/apollographql/graphql-tools/blob/master/docs/source/mocking.md
+*/
 function loadFastMocking() {
   const fastMocks = {};
 
@@ -44,12 +42,12 @@ function loadFastMocking() {
   ).forEach(
     e => _merge(fastMocks, e)
   );
-  // Conversión manual a función que retorna objeto literal
+  // Manual conversion to function that return a literal object
   if (fastMocks.Query) {
     const q = _cloneDeep(fastMocks.Query);
     fastMocks.Query = function Query() { return q };
   }
-  // Conversión manual a función que retorna objeto literal
+  // Manual conversion to function that return a literal object
   if (fastMocks.Mutation) {
     const m = _cloneDeep(fastMocks.Mutation);
     fastMocks.Mutation = function Mutation() { return m };

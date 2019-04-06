@@ -6,7 +6,7 @@ import url from "url";
 import { Utils } from "../helpers";
 
 /**
- * Conector para los datasource.
+ * Datasources connector.
 */
 class Ustart {
 
@@ -63,8 +63,7 @@ class Ustart {
   }
 
   /**
-   * Sincroniza la BD de todos los datasources pertenecientes a Sequelize. Retorna una promesa de todos
-   * los sync de los datasources creados.
+   * Synchronizes all Sequelize databases. Returns a promise.
    * options: Sequelize.sync options
   */
   syncDatasources(options) {

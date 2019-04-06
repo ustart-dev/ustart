@@ -1,6 +1,3 @@
-/**
- * Busca, carga y fusiona los resolutores.
-*/
 import path from "path";
 import {
   fileLoader,
@@ -13,6 +10,9 @@ import {
   RESOLVERS_GLOB
 } from "../constants";
 
+/**
+ * It search, load and merge graphql resolvers.
+*/
 function loadResolvers() {
   return mergeResolvers(
     fileLoader(

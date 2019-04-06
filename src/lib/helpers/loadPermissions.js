@@ -1,9 +1,3 @@
-/**
- * Busca, carga y fusiona los permisos de graphql-shield.
- * Se reutiliza la función de loading de merge-graphql-schemas para buscar y cargar
- * los scripts. Se utiliza la función merge de la librería lodash para fusionar
- * profundamente los objetos cargados.
-*/
 import path from "path";
 import {
   fileLoader
@@ -18,6 +12,9 @@ import {
   PERMISSIONS_GLOB
 } from "../constants";
 
+/**
+ * It search, load and merge graphql-shield permissions.
+*/
 function loadPermissions() {
   const permissions = {};
 

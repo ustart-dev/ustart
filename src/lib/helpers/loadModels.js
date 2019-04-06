@@ -1,8 +1,3 @@
-/**
- * Busca y carga los modelos, y sus asociaciones.
- * Se reutiliza la función de loading de merge-graphql-schemas para buscar y cargar
- * los scripts.
-*/
 import path from "path";
 import {
   fileLoader
@@ -15,6 +10,9 @@ import {
   SRC_PATH
 } from "../constants";
 
+/**
+ * It search and load models and its associations.
+*/
 function loadModels() {
   fileLoader(
     `{${ENTITIES_PATH}/${MODELS_GLOB},${PLUGINS_PATH}/${MODELS_GLOB}}`,

@@ -1,6 +1,3 @@
-/**
- * Script para definir los helpers del server
-*/
 export * from "./loadModels";
 export * from "./loadTypeDefs";
 export * from "./loadResolvers";

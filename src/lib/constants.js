@@ -1,107 +1,105 @@
-/**
- * Este fichero contiene las constantes del backend.
-*/
 import appRoot from "app-root-path";
 
 /**
- * Define el glob para cargar los tipos de graphql.
- * Documentación de glob: https://www.npmjs.com/package/glob
+ * Glob for loading graphql types.
+ * glob doc: https://www.npmjs.com/package/glob
 */
 export const TYPES_GLOB = "**/*.type.graphql";
 
 /**
- * Define el glob para cargar los resolutores.
+ * Glob for loading resolvers.
 */
 export const RESOLVERS_GLOB = "**/*.resolvers.*";
 
 /**
- * Define el glob para cargar los permisos.
+ * Glob for loading permissions.
 */
 export const PERMISSIONS_GLOB = "**/*.permissions.*";
 
 /**
- * Define el glob para cargar los modelos.
+ * Glob for loading models.
 */
 export const MODELS_GLOB = "**/*.model.*";
 
 /**
- * Define el glob para cargar los mocks rápidos.
+ * Glob for loading fast mocks.
 */
 export const FASTMOCKS_GLOB = "**/mocks/*.mocks.*";
 
 /**
- * Define el directorio de fuentes. Si NODE_ENV
- * es 'development' se carga 'src'; en caso contrario 'dist'.
+ * Source folder. If NODE_ENV is set to 'development' it loads from 'src',
+ * otherwise from 'dist'.
 */
 export const SRC_DIR = process.env.NODE_ENV === "development" ? "src" : "dist";
 
 /**
- * Define la ruta absoluta del directorio fuentes.
+ * Source path.
 */
 export const SRC_PATH = `${appRoot}/${SRC_DIR}`;
 
 /**
- * Directorio de plugins.
+ * Plugin folder.
 */
 export const PLUGINS_DIR = "plugins";
 
 /**
- * Ruta absoluta al directorio de plugins.
+ * Plugin path.
 */
 export const PLUGINS_PATH = `${appRoot}/${PLUGINS_DIR}`;
 
 /**
- * Directorio de entidades.
+ * Entities folder.
 */
 export const ENTITIES_DIR = "entities";
 
 /**
- * Ruta absoluta al directorio de entidades.
+ * Entities path.
 */
 export const ENTITIES_PATH = `${SRC_PATH}/${ENTITIES_DIR}`;
 
 /**
- * Directorio de datos para la BD.
+ * Data folder.
+ * NOTE: This contains the database seeds until the new system is ready.
 */
 export const DATA_DIR = "data";
 
 /**
- * Ruta absoluta al directorio de datos.
+ * Data path.
 */
 export const DATA_PATH = `${SRC_PATH}/${DATA_DIR}`;
 
 /**
- * Directorio de suscripciones.
+ * Subscription folder.
 */
 export const SUBSCRIPTION_DIR = "subscription";
 
 /**
- * Ruta absoluta al directorio de suscripciones.
+ * Subscription path.
 */
 export const SUBSCRIPTION_PATH = `${SRC_PATH}/${SUBSCRIPTION_DIR}`;
 
 /**
- * Directorio de directivas de esquema.
+ * Schema directives folder.
 */
 export const DIRECTIVES_DIR = "directives";
 
 /**
- * Ruta absoluta de directivas de esquema.
+ * Schema directives path.
 */
 export const DIRECTIVES_PATH = `${SRC_PATH}/${DIRECTIVES_DIR}`;
 
 /**
- * Directorio de configuraciones de las fuentes.
+ * Configuration folder (sources).
 */
 export const CONFIG_DIR = "config";
 
 /**
- * Ruta absoluta configuraciones de las fuentes.
+ * Configuration path
 */
 export const CONFIG_PATH = `${SRC_PATH}/${CONFIG_DIR}`;
 
 /**
- * Query vacía. Se utiliza cuando no se encuentra ningún tipo definido.
+ * Empty query. It is used when no graphql type is found.
 */
 export const EMPTY_QUERY = `
 type Query {
