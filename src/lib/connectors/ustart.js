@@ -16,7 +16,9 @@ class Ustart {
   }
 
   /**
-   *
+   * Add a connexion to a datasource. It uses two libraries: Sequelize and Mongoose.
+   * Sequelize supports Postgres, MySQL, MariaDB, SQLite and Microsoft SQL Server.
+   * Mongoose supports MongoDB.
   */
   connect(uri, options = null) {
     const urlParts = url.parse(uri);
@@ -36,7 +38,8 @@ class Ustart {
   }
 
   /**
-   *
+   * Creates a new model in the specified datasource. The method does not perform
+   * any business logic validation, all arguments are passed as is.
   */
   defineModel(datasource, modelName, modelInstance) {
     if (typeof modelName !== "string") {
