@@ -41,7 +41,7 @@ class Ustart {
    * Creates a new model in the specified datasource. The method does not perform
    * any business logic validation, all arguments are passed as is.
   */
-  defineModel(datasource, modelName, modelInstance) {
+  defineModel(datasource, modelName, modelInstance, options) {
     if (typeof modelName !== "string") {
       throw new Error(`Wrong type at modelName: expected string got ${typeof modelName}`);
     } else if (typeof modelInstance !== "object") {
@@ -58,10 +58,18 @@ class Ustart {
 
     const library = Utils.datasourceToLibrary(datasource);
     if (library === "sequelize") {
-      this.models[modelName] = this.datasources[datasource].define(modelName, modelInstance);
+      this.models[modelName] = this.datasources[datasource].define(
+        modelName,
+        modelInstance,
+        options
+      );
     } else if (library === "mongoose") {
       // In this case, modelInstance must be a mongoose schema.
-      this.models[modelName] = mongoose.model(modelName, modelInstance);
+      this.models[modelName] = mongoose.model(
+        modelName,
+        modelInstance,
+        options
+      );
     }
   }
 
