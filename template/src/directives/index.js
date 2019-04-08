@@ -1,11 +1,9 @@
 /**
- * Exportar las directivas de esquema en este script. Puedes organizar tus directivas
- * en la carpeta directives.
- * Docs: https://www.apollographql.com/docs/graphql-tools/schema-directives.html
- * El framework cargará automáticamente el objeto schemaDirectives y lo añadirá
- * a función makeExecutableSchema del paquete graphql-tools.
- * Descomentar la exportación de schemaDirectives para añadir las directivas al esquema;
- * comentar en caso contrario.
+ * Exports the schema directives. The framework will load automatically the object
+ * schemaDirectives and add it to makeExecutableSchema function (from the
+ * graphql-tools package).
+ *
+ * How to use schema directives: https://www.apollographql.com/docs/graphql-tools/schema-directives.html
 */
 const schemaDirectives = {
   // your directives here...

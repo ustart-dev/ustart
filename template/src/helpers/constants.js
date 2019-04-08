@@ -1,3 +1,3 @@
 /**
- * Este fichero contiene las constantes personalizadas.
+ * Add your constants here...
 */

@@ -1,8 +1,6 @@
 /**
- * Este fichero popula con datos básicos la BD.
- * El uso previsto de este script es en mocks.js.
+ * Populates the databases at starting time. It is called automatically by the framework.
 */
-
 export async function populateBasicData() {
   // Add your basic data population here...
 };

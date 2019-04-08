@@ -1,7 +1,6 @@
 /**
- * Establecer las asociaciones de Sequelize en este script.
- * Ejemplo: Un usuario User pertenece a una Region y una Region tiene muchos
- * usuarios.
+ * Define Sequelize associations in this script.
+ * Example: A user belongs to a region and a region has many users.
 
 import { ustart } from "ustart";
 

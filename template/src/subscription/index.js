@@ -1,18 +1,18 @@
 /**
- * Implementar las suscripciones que deseas cargar en el endpoint.
- * El framework utiliza ka implementación de "pubsub"
- * de "graphql-yoga" (docs: https://github.com/prisma/graphql-yoga#pubsub), la
- * cual es añadida al contexto. Para utilizar el PubSub básico se debe
- * exportar una instancia de PubSub:
+ * Exports the subscription implementation to be used by the framework.
+ * The framework uses the implementation of "pubsub" from graphql-yoga
+ * (https://github.com/prisma/graphql-yoga#pubsub), which is added to the context.
+ * You can use all PubSub defined in the package graphql-subscriptions.
+ * Example of basic PubSub instance:
+
+import { PubSub } from "graphql-subscriptions";
 
 const pubsub = new PubSub();
 
 export default pubsub;
 
- * Para utilizar una implementación propia del PubSub (por ejemplo las especificadas
- * en https://github.com/apollographql/graphql-subscriptions) se debe exportar
- * el pubsub de la misma forma que en el ejemplo anterior, pero utilizando
- * la clase propia.
+ *
+ * More doc: https://github.com/apollographql/graphql-subscriptions
 */
 // import { PubSub } from "graphql-subscriptions";
 //

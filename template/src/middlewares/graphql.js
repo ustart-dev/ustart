@@ -1,10 +1,10 @@
 /**
- * Exporta todos los middlewares a cargar por el package graphql-middleware. El orden en el array define
- * prioridad de ejecución. De esta forma los middlewares que se añaden
- * al final del array "middlewares" se ejecutarán al final.
- * Documentación: https://github.com/prisma/graphql-middleware
+ * Exports the graphql middlewares to be loadedby the framework.
+ * The array is used as defined, so priority order applies in the same order.
+ * Note: graphql-shield is loaded automatically by the framework in first position,
+ * all middlewares defined in the below array are concatened after graphql-shield.
  *
- * Importa y añade los middlewares necesarios para la lógica del negocio.
+ * How to use graphql-middleware: https://github.com/prisma/graphql-middleware
 */
 const graphqlMiddlewares = [
   // yourMiddlewares

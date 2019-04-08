@@ -1,8 +1,9 @@
 /**
- * Establece las opciones de comportamiento de graphql-shield.
- * El objeto options es proporcionado a la función: shield(permissions, options)
- * y sus atributos corresponden a los descritos en su documentación.
- * Documentación: https://github.com/maticzav/graphql-shield#options
+ * Establishes the behavior options for graphql-shield.
+ * shieldOptions object is passed to shield as the second parameter: shield(permissions, options)
+ * and its attributes are the same.
+ *
+ * More doc: https://github.com/maticzav/graphql-shield#options
 */
 const shieldOptions = {
   allowExternalErrors: process.env.NODE_ENV !== "production",
