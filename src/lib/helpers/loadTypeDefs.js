@@ -3,7 +3,6 @@ import {
   fileLoader,
   mergeTypes
 } from "merge-graphql-schemas";
-import appRoot from "app-root-path";
 import {
   ENTITIES_PATH,
   PLUGINS_PATH,

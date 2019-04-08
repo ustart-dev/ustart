@@ -2,7 +2,6 @@ import path from "path";
 import {
   fileLoader
 } from "merge-graphql-schemas";
-import appRoot from "app-root-path";
 import {
   merge as _merge,
   cloneDeep as _cloneDeep
