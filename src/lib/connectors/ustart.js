@@ -3,7 +3,7 @@
 import Sequelize from "sequelize";
 import mongoose from "mongoose";
 import url from "url";
-import { Utils } from "../helpers";
+import { Utils } from "../helpers/utils";
 
 /**
  * Datasources connector.

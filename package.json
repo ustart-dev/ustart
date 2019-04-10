@@ -21,7 +21,7 @@
     "build:dev": "npm run clean && babel src -d dist --copy-files",
     "build": "npm run clean && babel --copy-files --no-comments --minified src -d dist",
     "pack:test": "npm run build:dev && npm pack && mv ustart-*.tgz ../",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "dependencies": {
     "apollo-errors": "^1.8.0",
@@ -44,11 +44,20 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
+    "jest": "^22.4.3",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2"
   },
   "files": [
     "dist",
     "template"
-  ]
+  ],
+  "jest": {
+    "verbose": true,
+    "testMatch": [
+      "**/__tests__/**/(*.)+(spec|test).[jt]s?(x)",
+      "**/?(*.)+(spec|test).[jt]s?(x)"
+    ],
+    "testEnvironment": "node"
+  }
 }

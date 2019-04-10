@@ -1,7 +1,7 @@
 import Sequelize from "sequelize";
 import url from "url";
 import { Schema } from "mongoose";
-import { ustart } from "../../server/connectors/ustart";
+import { ustart } from "../../src/lib/connectors/ustart";
 
 beforeAll(async () => {
   ustart.connect(process.env.PG_URI);
@@ -39,5 +39,9 @@ describe("Ustart tests", () => {
     expect(ustart.models.dog).toBeInstanceOf(Function);
     // console.log(`instance of dog: ${typeof ustart.models.dog}`);
     // console.log(ustart.models.dog);
+  });
+
+  test.skip("syncDatasources", async () => {
+    // syncDatasources
   });
 });

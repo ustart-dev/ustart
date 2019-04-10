@@ -1,4 +1,4 @@
-import { Utils } from "../../server/helpers";
+import { Utils } from "../../src/lib/helpers/utils";
 
 describe("Server utils", () => {
   test("datasourceToLibrary", () => {
