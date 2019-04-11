@@ -1,28 +1,26 @@
 /**
- * Gestiona creación de la base de datos, populación de datos básicos para
- * su funcionamiento y populación de datos falsos. Soporta varios modos para
- * diferentes entornos:
+ * Manage the creation of the database, populate it with basic data and fake data.
+ * It behavior depends on the environment:
  *
- * Modo PRODUCTION No se elimina nada de la BD y solo se pueblan los datos
- * básicos cuando la BD está vacía.
+ * production mode: database is not destroyed if exists (otherwise it will be
+ * synchronized) and it is populated with basic data (executing populateBasicData function).
  *
- * Modo DEV: No se elimina nada de la BD y se pueblan con datos fake, además de los básicos.
- * cabe notar que en ese modo el mocking de datos sigue ejecutandose por lo que éstos se
- * acumularán.
+ * dev mode: database is not destroyed if exists (otherwise it will be synchronized)
+ * and it is populated with basic data (executing populateBasicData function).
  *
- * Modo DEV-CLEAN: Se destruye y construye la BD en cada reiniciado, se puebla con datos fake
- * y datos básicos. Además este modo incluye un chequeo de seguridad contra destrucciones
- * accidentales: toda BD para ser destruida debe terminar en "_test" (sin las comillas).
+ * dev-clean mode: database is destroyed and as a safty check it must have '_test' suffix in the name.
+ * It is populated with basic data and fake data (executing populateFakeData function).
  *
- * Modo TESTING: Se destruye y construye la BD en cada reiniciado, se puebla con datos
- * básicos. Además este modo incluye un chequeo de seguridad contra destrucciones
- * accidentales: toda BD para ser destruida debe terminar en "_test" (sin las comillas).
- * El objetivo de este modo es ejecutar test de integración y de regresión que requieren
- * de base de datos y un endpoint graphql.
+ * testing mode: database is destroyed and as a safty check it must have '_test' suffix in the name.
+ * It is populated with basic data and testing data (executing testingMocking function).
+ * This mode is intended to be use with testing, for example end to end tests.
  *
- * En caso de no especificar modo alguno la única acción que se realiza es intentar sincronizar
- * la BD con el modelo.
- * Ver documentación de sequelize:
+ * Notes:
+ * - Only Sequelize datasources could be syncronized and destroyed.
+ * - It is posibble to use ustart.setSync(false) to disable sync.
+ * - These modes are temporary while ustart model generator is being implemented
+ *
+ * More docs on how Sequelize sync works:
  * http://docs.sequelizejs.com/manual/tutorial/models-definition.html#database-synchronization
  *
 */
@@ -37,22 +35,19 @@ async function loadDatabaseData() {
   console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 
   if (process.env.NODE_ENV === "production") {
-    // NOTE: Jamás agregar { force: true } en modo producción
-    // postgres.sync(): sincroniza los modelos de sequelize que no están creados en la
-    // BD, al añadir
+    // NOTE: never add { force: true } to production mode
     await ustart.syncDatasources();
     await populateBasicData();
   } else if (process.env.NODE_ENV === "development") {
     await ustart.syncDatasources();
     await populateBasicData();
-  } else if (process.env.NODE_ENV === "DEV-CLEAN") {
-    // TODO: Re-evaluar este MODO
-    // Toda BD para ser destruida debe terminar en "_test" (sin las comillas).
+  } else if (process.env.NODE_ENV === "dev-clean") {
+    // NOTE: The database name must have '_test' suffix
     await ustart.syncDatasources({ force: true, match: /_test$/ });
     await populateBasicData();
     await populateFakeData();
   } else if (process.env.NODE_ENV === "testing") {
-    // Toda BD para ser destruida debe terminar en "_test" (sin las comillas).
+    // NOTE: The database name must have '_test' suffix
     await ustart.syncDatasources({ force: true, match: /_test$/ });
     await populateBasicData();
     await testingMocking();

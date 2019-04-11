@@ -44,4 +44,17 @@ describe("Ustart tests", () => {
   test.skip("syncDatasources", async () => {
     // syncDatasources
   });
+
+  test("setSync", async () => {
+    // Case 1: Database sync is enabled by default
+    expect(ustart.isSyncEnabled).toBe(true);
+
+    // Case 2: Disable sync
+    ustart.setSync(false);
+    expect(ustart.isSyncEnabled).toBe(false);
+
+    // Case 3: Restore default value
+    ustart.setSync(true);
+    expect(ustart.isSyncEnabled).toBe(true);
+  });
 });

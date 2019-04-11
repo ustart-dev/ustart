@@ -13,6 +13,8 @@ class Ustart {
   constructor() {
     this.datasources = {};
     this.models = {};
+    // NOTE: isSyncEnabled is a temporary solution, while the model generator is being implemented
+    this.isSyncEnabled = true;
   }
 
   /**
@@ -78,6 +80,10 @@ class Ustart {
    * options: Sequelize.sync options
   */
   syncDatasources(options) {
+    if (!this.isSyncEnabled) {
+      return;
+    }
+
     const promiseList = [];
 
     for (const dts in this.datasources) {
@@ -87,6 +93,15 @@ class Ustart {
     }
 
     return Promise.all(promiseList);
+  }
+
+  /**
+   * Set the sync mode for Sequelize. If set to true sequelize will synchronize all
+   * models at starting time, otherwise none model will by synchronized.
+   * NOTE: This is a temporary solution while the ustart model generator is being implemented.
+  */
+  setSync(syncEnabled) {
+    this.isSyncEnabled = (syncEnabled == true);
   }
 }
 
