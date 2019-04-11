@@ -30,7 +30,7 @@ export const FASTMOCKS_GLOB = "**/mocks/*.mocks.*";
  * Source folder. If NODE_ENV is set to 'development' it loads from 'src',
  * otherwise from 'dist'.
 */
-export const SRC_DIR = process.env.NODE_ENV === "development" ? "src" : "dist";
+export const SRC_DIR = process.env.NODE_ENV !== "production" ? "src" : "dist";
 
 /**
  * Source path.
