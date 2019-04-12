@@ -1,6 +1,6 @@
 # uStart
 
-ustart is a NodeJS framework for building GraphQL backends using Apollo, Sequelize, Mongoose and other great tools. Check out our site [ustart.dev](https://ustart.dev).
+uStart is a NodeJS framework for building GraphQL backends using Apollo, Sequelize, Mongoose and other great tools. Check out our site [ustart.dev](https://ustart.dev).
 
 ## Getting started
 
