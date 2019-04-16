@@ -94,8 +94,14 @@ class Index extends React.Component {
       <div
         className="productShowcaseSection paddingBottom"
         style={{textAlign: 'center'}}>
-        <h2>Feature Callout</h2>
-        <MarkdownBlock>These are features of this project</MarkdownBlock>
+        <h2 style={{ color: 'red' }}>NOTE</h2>
+        <MarkdownBlock>
+          The content of this documentation is being actively modified to reach the version 1.0.
+          We will add docs versioning when its ready.
+          
+          Many sections and examples are missing and they will be created as we go,
+          so take a look at this page constantly to see docs improvements.
+        </MarkdownBlock>
       </div>
     );
 
@@ -191,12 +197,12 @@ class Index extends React.Component {
       <div>
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
-          {/*<Features />
+          {/*<Features />*/}
           <FeatureCallout />
-          <LearnHow />
-          <TryOut />
+          {/*}<LearnHow />
+          {/*}<TryOut />
           <Description />
-          <Showcase />*/}
+          {/*<Showcase />*/}
         </div>
       </div>
     );
