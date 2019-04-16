@@ -1,0 +1,9 @@
+{
+  "docs": {
+    "Getting Started": ["installation", "first-example", "project-structure"],
+    "API": ["commands"]
+  },
+  "docs-other": {
+    "First Category": ["doc4", "doc5"]
+  }
+}
