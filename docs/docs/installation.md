@@ -4,8 +4,6 @@ title: Installation
 sidebar_label: Installation
 ---
 
-uStart was designed to start fast your backend development.
-
 ## Installing uStart
 
 Install the ustart CLI
