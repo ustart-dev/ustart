@@ -1,6 +1,6 @@
 ---
-id: first-example
-title: First Example
+id: first-example-1
+title: First Example (part 1)
 ---
 
 After installing uStart, you now have a skeleton to work from for your specific app. The following shows a basic example to continue with.

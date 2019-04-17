@@ -1,6 +1,11 @@
 {
   "docs": {
-    "Getting Started": ["installation", "first-example", "project-structure"],
+    "Getting Started": [
+      "installation",
+      "first-example-1",
+      "first-example-2",
+      "project-structure"
+    ],
     "Guides": [
       "datasources",
       "models",
