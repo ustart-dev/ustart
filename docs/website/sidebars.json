@@ -11,7 +11,10 @@
       "models",
       "permissions",
       "subscriptions",
-      "schema-directives"
+      "schema-directives",
+      "mocking",
+      "email",
+      "build"
     ],
     "API": ["commands"]
   },
