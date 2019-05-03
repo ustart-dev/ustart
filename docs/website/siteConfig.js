@@ -99,7 +99,7 @@ const siteConfig = {
   // twitterImage: 'img/docusaurus.png',
 
   // Show documentation's last contributor's name.
-  // enableUpdateBy: true,
+  enableUpdateBy: true,
 
   // Show documentation's last update time.
   enableUpdateTime: true,
