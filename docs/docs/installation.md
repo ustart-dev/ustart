@@ -6,6 +6,10 @@ sidebar_label: Installation
 
 ## Installing uStart
 
+Ensure you have the latest [Node](https://nodejs.org/en/download/) installed
+
+> You have to be on Node >= 8.x
+
 Install the ustart CLI
 ```shell
 npm install -g ustart-cli
