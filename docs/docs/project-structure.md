@@ -58,4 +58,4 @@ Use it to define your own environment variables. It is also used by uStart, the 
 * **PG_URI**: URI to PostgreSQL. This name is not mandatory, you can change it for another one.
 * **MYSQL_URI**: URI to MySQL. This name is not mandatory, you can change it for another one.
 * **MONGO_URI**: URI to MongoDB. This name is not mandatory, you can change it for another one.
-* **MAIL_URL**: URL to the email provider. This name is **mandatory**.
+* **MAIL_URL**: It should reference an SMTP server and use the form `smtp://USERNAME:PASSWORD@HOST:PORT` or `smtps://USERNAME:PASSWORD@HOST:PORT`. See [Email](email.md) section.
