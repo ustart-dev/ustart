@@ -65,6 +65,18 @@ class Footer extends React.Component {
               rel="noreferrer noopener">
               Twitter
             </a>
+            <a
+              href="https://linkedin.com/company/ustart-dev"
+              target="_blank"
+              rel="noreferrer noopener">
+              LinkedIn
+            </a>
+            <a
+              href="https://www.facebook.com/ustart.dev/"
+              target="_blank"
+              rel="noreferrer noopener">
+              Facebook
+            </a>
           </div>
           <div>
             <h5>More</h5>
