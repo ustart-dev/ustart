@@ -16,7 +16,7 @@
       "schema-directives",
       "mocking",
       "email",
-      "build"
+      "build-deploy"
     ],
     "API": ["commands"]
   },
