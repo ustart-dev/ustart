@@ -40,6 +40,6 @@ The process for building and deploying looks like the follow:
 1. Make a build: `ustart build`.
 1. Pack the project: `npm pack`.
 1. Copy the `tgz` file into the deployment server.
-1. Unpack it: `tar zxvf project-name.X.Y.Z.tgz` and install all production dependencies `npm install --production`.
+1. Unpack it: `tar zxvf project-name.X.Y.Z.tgz`, move into the unpacked folder and install all production dependencies `npm install --production`.
 1. Make sure that *NODE_ENV* is set to **production**, along with the rest of environmental variables needed by your app.
 1. Serve your app: `npm run serve`.
