@@ -39,7 +39,11 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: 'installation', label: 'Docs'},
+    { doc: 'installation', label: 'Docs' },
+    {
+      href: 'https://github.com/ustart-dev',
+      label: 'GitHub',
+    },
     // {doc: 'doc4', label: 'API'},
     // {page: 'help', label: 'Help'},
   ],
