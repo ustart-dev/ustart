@@ -15,6 +15,15 @@
     "mssql"
   ],
   "author": "Leonel Peña <leonel@ustart.dev>",
+  "license": "MIT",
+  "homepage": "https://ustart.dev",
+  "bugs": {
+    "url": "https://github.com/ustart-dev/ustart/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ustart-dev/ustart.git"
+  },
   "main": "./dist/lib/index.js",
   "scripts": {
     "clean": "rm -rf dist",
