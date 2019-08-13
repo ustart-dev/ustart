@@ -34,28 +34,28 @@
   },
   "dependencies": {
     "apollo-errors": "^1.8.0",
-    "app-root-path": "^2.1.0",
+    "app-root-path": "^2.2.1",
     "body-parser": "^1.18.2",
-    "compression": "^1.7.2",
+    "compression": "^1.7.4",
     "dotenv": "^7.0.0",
-    "graphql": "^0.13.0",
-    "graphql-shield": "^5.1.0",
-    "graphql-yoga": "^1.6.0",
-    "lodash": "^4.17.5",
-    "merge-graphql-schemas": "^1.5.8",
-    "mongoose": "^5.4.19",
+    "graphql": "^0.13.2",
+    "graphql-shield": "^5.7.3",
+    "graphql-yoga": "^1.18.1",
+    "lodash": "^4.17.15",
+    "merge-graphql-schemas": "^1.7.0",
+    "mongoose": "^5.6.9",
     "nodemailer": "^4.6.5",
     "rand-token": "^0.4.0",
-    "sequelize": "^5.3.0",
-    "sequelize-cli": "^5.4.0"
+    "sequelize": "^5.14.0",
+    "sequelize-cli": "^5.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
     "jest": "^22.4.3",
-    "pg": "^7.4.1",
-    "pg-hstore": "^2.3.2"
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3"
   },
   "files": [
     "dist",
