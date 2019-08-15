@@ -12,9 +12,8 @@ After you have initialized a project with `ustart init`, it will create a direct
 ```
 +-- config
 |   +-- jestSetup.js
+|   +-- yoga.js
 +-- src
-|   +-- config
-|   |   +-- yoga.js
 |   +-- data
 |   |   +-- base
 |   |   +-- basicDataMocking.js
@@ -39,6 +38,7 @@ After you have initialized a project with `ustart init`, it will create a direct
 
 ## Directory and Files Description
 
+* **config**: Contains configuration files for [Jest](https://jestjs.io/docs/en/22.x/getting-started.html) and [graphql-yoga options](https://github.com/prisma/graphql-yoga#startoptions-options-callback-options-options--void----null-promisevoid)
 * **data**: Contains the database seeds for different environments. It also defines the endpoints for connecting datasources. Use the scripts `basicDataMocking`, `fakeDataMocking` and `testingMocking` with cautious, they are temporary solution while we implement the uStart datamodel generator and we are not sure if they will be kept on next releases.
 * **directives**: Schema directives.
 * **entities**: Contains the graphql schemas (types), resolvers, database models, permissions and mocking.

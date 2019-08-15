@@ -96,7 +96,7 @@ export const CONFIG_DIR = "config";
 /**
  * Configuration path
 */
-export const CONFIG_PATH = `${SRC_PATH}/${CONFIG_DIR}`;
+export const CONFIG_PATH = `${appRoot}/${CONFIG_DIR}`;
 
 /**
  * Empty query. It is used when no graphql type is found.
