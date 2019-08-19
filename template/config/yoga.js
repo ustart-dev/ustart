@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Configuration file for graphql-yoga.
  * This script allows you to customize start server options. If not used
@@ -9,10 +11,8 @@
 
  * Option list: https://github.com/prisma/graphql-yoga#startoptions-options-callback-options-options--void----null-promisevoid
 */
-const options = {
+exports.options = {
   port: parseInt(process.env.GRAPHQL_ENDPOINT_PORT, 10) || 4000,
   tracing: true,
   cacheControl: true
 };
-
-export { options };
