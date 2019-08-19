@@ -1,3 +1,2 @@
 NODE_ENV=development
-JWT_SECRET="change-this-super-secret"
 GRAPHQL_ENDPOINT_PORT=4000
