@@ -33,21 +33,13 @@
     "test": "jest"
   },
   "dependencies": {
-    "apollo-errors": "^1.8.0",
     "app-root-path": "^2.2.1",
-    "body-parser": "^1.18.2",
-    "compression": "^1.7.4",
     "dotenv": "^7.0.0",
-    "graphql": "^0.13.2",
-    "graphql-shield": "^5.7.3",
-    "graphql-yoga": "^1.18.1",
     "lodash": "^4.17.15",
     "merge-graphql-schemas": "^1.7.0",
     "mongoose": "^5.6.9",
     "nodemailer": "^4.6.5",
-    "rand-token": "^0.4.0",
-    "sequelize": "^5.14.0",
-    "sequelize-cli": "^5.5.0"
+    "sequelize": "^5.14.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -58,8 +50,7 @@
     "pg-hstore": "^2.3.3"
   },
   "files": [
-    "dist",
-    "template"
+    "dist"
   ],
   "jest": {
     "verbose": true,
