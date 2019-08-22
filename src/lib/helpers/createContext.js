@@ -1,9 +1,9 @@
 import { ustart } from "../connectors/ustart";
 import { SUBSCRIPTION_PATH } from "../constants";
 
-const pubsub = require(SUBSCRIPTION_PATH);
-
 function createContext() {
+  const pubsub = require(SUBSCRIPTION_PATH);
+  
   const context = {
     ustart
   };

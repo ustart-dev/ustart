@@ -26,13 +26,14 @@
 */
 import { ustart } from "../connectors/ustart";
 import { DATA_PATH } from "../constants";
-const populateBasicData = require(`${DATA_PATH}/basicDataMocking`).populateBasicData;
-const populateFakeData = require(`${DATA_PATH}/fakeDataMocking`).populateFakeData;
-const testingMocking = require(`${DATA_PATH}/testingMocking`).testingMocking;
 
 async function loadDatabaseData() {
 
   console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+
+  const populateBasicData = require(`${DATA_PATH}/basicDataMocking`).populateBasicData;
+  const populateFakeData = require(`${DATA_PATH}/fakeDataMocking`).populateFakeData;
+  const testingMocking = require(`${DATA_PATH}/testingMocking`).testingMocking;
 
   if (process.env.NODE_ENV === "production") {
     // NOTE: never add { force: true } to production mode
