@@ -15,6 +15,7 @@ class Ustart {
     this.models = {};
     // NOTE: isSyncEnabled is a temporary solution, while the model generator is being implemented
     this.isSyncEnabled = true;
+    this.migration = null;
   }
 
   /**
@@ -22,7 +23,7 @@ class Ustart {
    * Sequelize supports Postgres, MySQL, MariaDB, SQLite and Microsoft SQL Server.
    * Mongoose supports MongoDB.
   */
-  connect(uri, options = null) {
+  connect(uri, options = null, ustartOptions = null) {
     const urlParts = url.parse(uri);
 
     const datasource = urlParts.protocol.replace(/:$/, "");
@@ -34,8 +35,14 @@ class Ustart {
     const library = Utils.datasourceToLibrary(datasource);
     if (library === "sequelize") {
       this.datasources[datasource] = new Sequelize(uri, options);
+      if (ustartOptions.enableMigration) {
+        this.migration = { datasource, uri };
+      }
     } else if (library === "mongoose") {
       this.datasources[datasource] = mongoose.connect(uri, options);
+      if (ustartOptions.enableMigration) {
+        console.log("Migrations only works with Sequelize data sources.");
+      }
     }
   }
 
@@ -102,6 +109,18 @@ class Ustart {
   */
   setSync(syncEnabled) {
     this.isSyncEnabled = (syncEnabled == true);
+  }
+
+  /**
+   * Returns the migration data (datasource with migration enabled).
+   * It is an object of the shape:
+   *  {
+   *    datasource: String,
+   *    uri: String
+   *  }
+  */
+  getMigration() {
+    return this.migration;
   }
 }
 
