@@ -1,3 +1,4 @@
+export * from "./loadDatasources";
 export * from "./loadModels";
 export * from "./loadTypeDefs";
 export * from "./loadResolvers";
