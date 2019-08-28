@@ -97,12 +97,3 @@ export const CONFIG_DIR = "config";
  * Configuration path
 */
 export const CONFIG_PATH = `${appRoot}/${CONFIG_DIR}`;
-
-/**
- * Empty query. It is used when no graphql type is found.
-*/
-export const EMPTY_QUERY = `
-type Query {
-  _EMPTY_: String
-}
-`;

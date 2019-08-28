@@ -13,12 +13,18 @@ import {
  * It search, load and merge graphql resolvers.
 */
 function loadResolvers() {
-  return mergeResolvers(
-    fileLoader(
-      `{${ENTITIES_PATH}/${RESOLVERS_GLOB},${PLUGINS_PATH}/${RESOLVERS_GLOB}}`,
-      { all: true }
-    )
+  const files = fileLoader(
+    `{${ENTITIES_PATH}/${RESOLVERS_GLOB},${PLUGINS_PATH}/${RESOLVERS_GLOB}}`,
   );
+
+  let resolvers = null;
+  if (files.length > 0) {
+    resolvers = mergeResolvers(files, { all: true });
+  } else {
+    resolvers = mergeResolvers(fileLoader(`${__dirname}/../assets/hello/hello.resolvers.js`));
+  }
+
+  return resolvers;
 };
 
 export { loadResolvers };

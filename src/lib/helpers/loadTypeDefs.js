@@ -6,13 +6,12 @@ import {
 import {
   ENTITIES_PATH,
   PLUGINS_PATH,
-  TYPES_GLOB,
-  EMPTY_QUERY
+  TYPES_GLOB
 } from "../constants";
 
 /**
- * Loads the graphql types. If there is no type to load, it returns an empty
- * query: "_EMPTY_".
+ * Loads the graphql types. If there is no type to load, it returns the hello
+ * query.
 */
 function loadTypeDefs() {
   const files = fileLoader(
@@ -22,9 +21,11 @@ function loadTypeDefs() {
   let typeDefs = null;
   if (files.length > 0) {
     typeDefs = mergeTypes(files, { all: true });
+  } else {
+    typeDefs = mergeTypes(fileLoader(`${__dirname}/../assets/hello/hello.type.graphql`));
   }
 
-  return typeDefs || EMPTY_QUERY;
+  return typeDefs;
 };
 
 export { loadTypeDefs };
