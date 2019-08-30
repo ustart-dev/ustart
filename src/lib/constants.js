@@ -29,8 +29,11 @@ export const FASTMOCKS_GLOB = "**/mocks/*.mocks.*";
 /**
  * Source folder. If NODE_ENV is set to 'development' it loads from 'src',
  * otherwise from 'dist'.
+ * NOTE: Evaluating concurrently package for trying babel watch and nodemon
+ *  inside of npm scripts
 */
-export const SRC_DIR = process.env.NODE_ENV !== "production" ? "src" : "dist";
+// export const SRC_DIR = process.env.NODE_ENV !== "production" ? "src" : "dist";
+export const SRC_DIR = "dist";
 
 /**
  * Source path.
