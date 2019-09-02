@@ -10,19 +10,19 @@ Ensure you have the latest [Node](https://nodejs.org/en/download/) installed
 
 > You have to be on Node >= 8.x
 
-Install the ustart CLI
-```shell
-npm install -g ustart-cli
-```
-
-Create a folder and initialize it with the cli
+Create a new folder for your project
 ```shell
 mkdir awesome-project
 cd awesome-project
-ustart init
 ```
 
-`ustart init` will create a structure and scripts ready to use, so you just have to use the name convention, define your models, write your graphql types and other stuff you will need.
+Initialize with the ustart CLI. This will create the project structure and
+install all NPM dependencies for you
+```shell
+npx ustart-cli init
+```
+
+We use `npx` to avoid global installation of the CLI. Once npx finish the `ustart-cli` will be available as a local package by typing `npx ustart <command>`.
 
 ## Verfying Installation
 
@@ -39,17 +39,17 @@ Server is running on http://localhost:4000
 
 Good, that means you have running the playground on `localhost` port `4000`.
 
-Execute your first query. Open your browser, go to the left panel and type:
+Execute your first query. Open your browser and open [localhost:4000](http://localhost:4000), go to the left panel and type:
 ```graphql
 query {
-  _EMPTY_
+  hello
 }
 ```
 
-Press the play icon (in the middle of both panels) and the right panel should show:
+Press the play icon in the middle of both panels, then the right panel should show:
 ```graphql
 "data": {
-  "_EMPTY_": null
+  "hello": "Hello there, everything is right. You can keep reading the docs!"
 }
 ```
 
