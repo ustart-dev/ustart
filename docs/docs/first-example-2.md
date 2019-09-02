@@ -16,13 +16,13 @@ Move to the root of your project and execute:
 npm install pg pg-hstore
 ```
 
-uStart uses Sequelize 5 to connect with relational databases and it is installed by default when you executed `ustart init`.
+uStart uses Sequelize 5 to connect with relational databases and it is installed by default when you executed `npx ustart-cli init`.
 
-Now go to PostgreSQL (using whatever you use to manage it) and create a database. The database name must end with *\_test*. It is a name convention explained in [Datasources](datasources.md) section. In this example we will use **awesome-example_test**.
+Now go to PostgreSQL (using whatever you use to manage it) and create a database. The database name must end with *\_test*. It is a name convention explained in [Datasources](datasources.md) section. In this example we are going to use **awesome-example_test**.
 
 ## Connect to PostgreSQL
 
-To connect to PostgreSQL, open the script `src/data/datasources.js` and paste:
+To connect to PostgreSQL, open the script `/config/datasources.js` and paste:
 
 ```js
 import { ustart } from "ustart";
@@ -87,7 +87,7 @@ ustart.defineModel("postgres", "dog", {
 
 If you have followed the [Part 1](first-example-1) of this example, you should remember that **Dog** has three attributes: *id*, *name* and *age*. Here, we are telling to the framework that our *Dog* entity will have those three attributes in the database too. Sequelize have the ability to sync your database schema to match your models, this option is enabled by default by uStart. Thus, if you have leaved the server running you will see that Sequelize has already synchronized your database, otherwise start it with `npm start`.
 
-In both cases you will find an output like this:
+In both cases you are going to find an output like this:
 
 ```bash
 ...
@@ -95,7 +95,7 @@ Executing (default): CREATE TABLE IF NOT EXISTS "dogs" ("id"  SERIAL , "name" VA
 Executing (default): SELECT i.relname AS name, ix.indisprimary AS primary, ix.indisunique AS unique, ix.indkey AS indkey, array_agg(a.attnum) as column_indexes, array_agg(a.attname) AS column_names, pg_get_indexdef(ix.indexrelid) AS definition FROM pg_class t, pg_class i, pg_index ix, pg_attribute a WHERE t.oid = ix.indrelid AND i.oid = ix.indexrelid AND a.attrelid = t.oid AND t.relkind = 'r' and t.relname = 'dogs' GROUP BY i.relname, ix.indexrelid, ix.indisprimary, ix.indisunique, ix.indkey ORDER BY i.relname;
 ```
 
-**Note**: Sequelize applies pluralization to database names, transforming `dog` to `dogs` as table name. This will not affect your model's name.
+> Sequelize applies pluralization to database names, transforming `dog` to `dogs` as table name. This will not affect your model's name which will be available at `ustart.models.dog`.
 
 All models are available at `ustart.models` attribute, so be aware that model names must be unique across your app.
 
@@ -207,5 +207,7 @@ We re-run `getDog` and it should return:
   }
 }
 ```
+
+## Homework
 
 If you did your homework and implemented the `getAllDogs` query, you can make it work now by using the `findAll()` method from the `dog` model.

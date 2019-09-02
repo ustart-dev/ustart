@@ -3,7 +3,7 @@ id: first-example-1
 title: First Example (part 1)
 ---
 
-After installing uStart, you now have a skeleton to work from for your specific app. The following shows a basic example to continue with.
+After initializing your project, you now have a skeleton to work from for your specific app. The following shows a basic example to continue with.
 
 ## Directory Structure
 
@@ -84,7 +84,7 @@ Now we are ready to test out our graphql backend.
 npm start
 ```
 
-Open your browser and enter to `localhost:4000`. Port `4000` is the default if you have not change it in `.env` file. Once the playground is loaded you are ready to play!.
+Open your browser and enter to `localhost:4000`. Port `4000` is the default if you have not changed it in `.env` file. Once the playground is loaded you are ready to play!.
 
 ## Try out
 
@@ -148,5 +148,7 @@ We re-run `getDog` and it should return:
   }
 }
 ```
+
+## Homework
 
 Add more dogs and implement your own query to get all registered dogs. Its name could be something like `getAllDogs` and return `[Dog]`.

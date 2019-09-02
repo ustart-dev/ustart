@@ -3,28 +3,31 @@ id: commands
 title: CLI Commands
 ---
 
-## Installation
+## Initialize a project
 
 ```
-npm install -g ustart-cli
+$ mkdir your-awesome-project
+$ cd your-awesome-project
+$ npx ustart-cli@alpha init
 ```
 
 ## Usage
 
 ```
-ustart --help
-ustart --version
-ustart init
-ustart build [options]
+$ npx ustart --help
+$ npx ustart --version
+$ npx ustart build [options]
+$ npx ustart db:migrate
+$ npx ustart migration:autogenerate --name "migration-name"
 ```
 
 ## Reference
 
-### `ustart init`
+### `npx ustart-cli init`
 
 Initializes a uStart project by creating the folder structure, JS scripts and installing npm dependencies . It requires an empty folder with NO package.json.
 
-### `ustart build`
+### `npx ustart build`
 
 Options | Default | Description
 ------- | ------- | -----------

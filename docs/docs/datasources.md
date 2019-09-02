@@ -7,7 +7,7 @@ uStart was designed to easily connect with multiple data sources.
 
 ## Connection
 
-Use `ustart.connect(URI)` method into `src/data/datasources.js` script to specify your connections.
+Use `ustart.connect(URI)` method into `config/datasources.js` script to specify your connections.
 
 ```js
 import { ustart } from "ustart";
@@ -36,9 +36,9 @@ npm install --save pg pg-hstore
 npm install --save mariadb
 ```
 
-> You don't have to install Sequelize, it is installed by default when you executed `ustart init`.
+> You don't have to install Sequelize, it is installed by default when you executed `npx ustart-cli init`.
 
-Inside `src/data/datasources.js` define your connections (you can use more than one):
+Inside `config/datasources.js` define your connections (you can use more than one):
 
 ```js
 import { ustart } from "ustart";
