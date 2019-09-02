@@ -1,0 +1,31 @@
+{
+  "version-1.0.0-docs": {
+    "Getting Started": [
+      "version-1.0.0-installation",
+      "version-1.0.0-first-example-1",
+      "version-1.0.0-first-example-2",
+      "version-1.0.0-project-structure"
+    ],
+    "Guides": [
+      "version-1.0.0-schema",
+      "version-1.0.0-resolvers",
+      "version-1.0.0-datasources",
+      "version-1.0.0-models",
+      "version-1.0.0-permissions",
+      "version-1.0.0-subscriptions",
+      "version-1.0.0-schema-directives",
+      "version-1.0.0-mocking",
+      "version-1.0.0-email",
+      "version-1.0.0-build-deploy"
+    ],
+    "API": [
+      "version-1.0.0-commands"
+    ]
+  },
+  "version-1.0.0-docs-other": {
+    "First Category": [
+      "version-1.0.0-doc4",
+      "version-1.0.0-doc5"
+    ]
+  }
+}
