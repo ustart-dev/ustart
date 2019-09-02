@@ -7,45 +7,49 @@ uStart follows name conventions to make development easier and faster.
 
 ## Directory Structure
 
-After you have initialized a project with `ustart init`, it will create a directory structure with the follow:
+After you have initialized a project with `npx ustart-cli init`, it will create a directory structure with the follow:
 
 ```
-+-- config
++-- __tests__/
+|   +-- hello.test.js
+|   +-- utils.js
++-- config/
+|   +-- datasources.js
 |   +-- jestSetup.js
 |   +-- yoga.js
-+-- src
-|   +-- data
-|   |   +-- base
++-- src/
+|   +-- data/
+|   |   +-- base/
 |   |   +-- basicDataMocking.js
-|   |   +-- datasources.js
 |   |   +-- fakeDataMocking.js
 |   |   +-- testingMocking.js
-|   +-- directives
-|   +-- entities
-|   +-- helpers
-|   +-- middlewares
+|   +-- directives/
+|   +-- entities/
+|   +-- helpers/
+|   +-- middlewares/
 |   |   +-- express.js
 |   |   +-- graphql.js
-|   +-- models
+|   +-- models/
 |   |   +--associations.js
-|   +-- shield
+|   +-- shield/
 |   |   +-- options.js
 |   |   +-- rules.js
-|   +-- subscription
+|   +-- subscription/
 |   +-- .babelrc
 |   +-- .env
 ```
 
 ## Directory and Files Description
 
-* **config**: Contains configuration files for [Jest](https://jestjs.io/docs/en/22.x/getting-started.html) and [graphql-yoga options](https://github.com/prisma/graphql-yoga#startoptions-options-callback-options-options--void----null-promisevoid)
-* **data**: Contains the database seeds for different environments. It also defines the endpoints for connecting datasources. Use the scripts `basicDataMocking`, `fakeDataMocking` and `testingMocking` with cautious, they are temporary solution while we implement the uStart datamodel generator and we are not sure if they will be kept on next releases.
-* **directives**: Schema directives.
-* **entities**: Contains the graphql schemas (types), resolvers, database models, permissions and mocking.
-* **middlewares**: Contains the middlewares to be loaded by uStart. `express.js` defines the express middlewares to be passed to `graphql-yoga` server (by default includes cors y compression). `graphql.js` defines the resolver middlewares, it uses `graphql-middleware` package.
-* **models**: `associations.js` establishes the Sequelize associations.
-* **shield**: `options.js` defines the `graphql-shield` options. Use `rules.js` to implement your shield rules.
-* **subscription**: Contains the subscription instance.
+* **__tests__**: Place your tests here. `hello.test.js` contains an example using Jest.
+* **config**: Contains configuration files for [datasources](datasources.md), [Jest](https://jestjs.io/docs/en/22.x/getting-started.html) and [graphql-yoga options](https://github.com/prisma/graphql-yoga#startoptions-options-callback-options-options--void----null-promisevoid)
+* **src/data**: Contains the database seeds for different environments. It also defines the endpoints for connecting datasources. Use the scripts `basicDataMocking`, `fakeDataMocking` and `testingMocking` with cautious, they are temporary solution while we implement the uStart datamodel generator and we are not sure if they will be kept on next releases.
+* **src/directives**: Schema directives.
+* **src/entities**: Contains the graphql schemas (types), resolvers, database models, permissions and mocking.
+* **src/middlewares**: Contains the middlewares to be loaded by uStart. `express.js` defines the express middlewares to be passed to `graphql-yoga` server (by default includes cors y compression). `graphql.js` defines the resolver middlewares, it uses `graphql-middleware` package.
+* **src/models**: `associations.js` establishes the Sequelize associations.
+* **src/shield**: `options.js` defines the `graphql-shield` options. Use `rules.js` to implement your shield rules.
+* **src/subscription**: Contains the subscription instance.
 
 
 ## .env
