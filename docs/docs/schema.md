@@ -136,3 +136,15 @@ The playground allows you to easily try your queries, mutations and subscription
 In development mode, the playground is started alongside with your backend at port *4000* by default. You can change this value by setting the [GRAPHQL_ENDPOINT_PORT](http://localhost:3000/docs/project-structure#env) environmental variable. Once your server is up and running, go to your browser and enter `http://localhost:400` (or whatever port you have set).
 
 ![Empty Playground](assets/playground-0.png)
+
+For production, disable the playground at the yoga config file:
+
+```javascript
+// file: your-project/config/yoga.js
+exports.options = {
+  port: parseInt(process.env.GRAPHQL_ENDPOINT_PORT, 10) || 4000,
+  tracing: true,
+  cacheControl: true,
+  playground: process.env.NODE_ENV === "production" ? false : "/"
+};
+```
