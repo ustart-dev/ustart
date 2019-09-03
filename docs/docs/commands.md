@@ -23,14 +23,28 @@ $ npx ustart migration:autogenerate --name "migration-name"
 
 ## Reference
 
-### `npx ustart-cli init`
+> Remember to append `npx` before every command.
 
-Initializes a uStart project by creating the folder structure, JS scripts and installing npm dependencies . It requires an empty folder with NO package.json.
+### `ustart-cli init`
 
-### `npx ustart build`
+Initializes a project by creating the folder structure, JS scripts and installing npm dependencies. It requires an empty folder with NO package.json. After running this command the CLI will be available as a local package with `npx ustart <command>`.
+
+### `ustart build`
 
 Options | Default | Description
 ------- | ------- | -----------
 `--dev` | `false` | Builds the current project for dev purposes by keeping code comments and without minified. Do not add this for production builds.
 
 Builds the current project into `dist` folder. It removes code comments and apply code minification. It cleans `dist` content before building.
+
+### `ustart db:migrate`
+
+Run all pending migrations.
+
+### `ustart migration:autogenerate`
+
+Options | Default | Description
+------- | ------- | -----------
+`--name` |  | Name of the migration.
+
+Autogenerates a migration based on the models' difference from the last run of this command. Only works with Sequelize models.
