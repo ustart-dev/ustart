@@ -7,12 +7,12 @@ uStart was designed to easily connect with multiple data sources.
 
 ## Connection
 
-Use `ustart.connect(URI)` method into `config/datasources.js` script to specify your connections.
+Use `ustart.connect()` method into `config/datasources.js` script to specify your connections.
 
 ```js
 import { ustart } from "ustart";
 
-ustart.connect(URI);
+ustart.connect(URI, options, ustartOptions);
 ```
 
 Define **URI** as environmental variable inside the `.env` file:
@@ -21,7 +21,11 @@ Define **URI** as environmental variable inside the `.env` file:
 URI="[datasource]://user:pass@example.com:[port]/[dbname]"
 ```
 
-That is all you have to do in your code to establish a connection.
+That is the minimum you have to do in your code to establish a connection.
+
+The second argument `options` is passed as is to the underlying library: *Sequelize* or *Mongoose*.
+
+The third argument `ustartOptions` allows you to customize the behavior of the datasource managed by uStart class. At the moment the only option supported is `enableMigration` that allows you to enable the migration for the datasource. Read more about it on [Migrations](migrations.md) section.
 
 ## Relational Databases
 
