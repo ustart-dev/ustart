@@ -85,7 +85,9 @@ ustart.defineModel("postgres", "dog", {
 });
 ```
 
-If you have followed the [Part 1](first-example-1) of this example, you should remember that **Dog** has three attributes: *id*, *name* and *age*. Here, we are telling to the framework that our *Dog* entity will have those three attributes in the database too. Sequelize have the ability to sync your database schema to match your models, this option is enabled by default by uStart. Thus, if you have leaved the server running you will see that Sequelize has already synchronized your database, otherwise start it with `npm start`.
+If you have followed the [Part 1](first-example-1) of this example, you should remember that **Dog** has three attributes: *id*, *name* and *age*. Here, we are telling to the framework that our *Dog* entity will have those three attributes in the database too.
+
+uStart have the ability to sync your database schema to match your models, this option is enabled by default. Thus, if you have leaved the server running you will see that Sequelize has already synchronized your database, otherwise start it with `npm start`. This behavior is explained in detail on [Migrations](migrations.md) section.
 
 In both cases you are going to find an output like this:
 
