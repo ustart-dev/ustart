@@ -9,7 +9,7 @@ Migrations allows you to keep track of changes to the database. With migrations 
 
 While developing, it is probably that you create models and attributes fast. You want to focus on the business logic behind your resolvers and graphql types rather than scripting and managing your database.
 
-uStart datasources and models supports database sync, thanks to Sequelize. This option is enabled by default and it is responsable that you did not have to create any table in your database in the [First example 2](first-example-2.md).
+uStart datasources and models supports database sync, thanks to Sequelize. This option is enabled by default and it is responsable that you did not have to create any table in your database in the [First example (part 2)](first-example-2.md).
 
 However, in **production**, this behavior is not recommended. Migrations are intended to solve this problem.
 
