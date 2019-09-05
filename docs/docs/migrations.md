@@ -92,8 +92,11 @@ Once you have created the migrations folder and enabled migration for a datasour
 Use the command `npx ustart migration:autogenerate --name "migration-name"` to create a new migration that matches your models definitions across entities (only works with the same datasource). It will calculate the difference from its last ran and create a migration file that transfer the database state to its current form.
 
 The migration command will do following:
+
 * Build your project src into dist
 * Create a migration file with name like `XX-migration-name.js`
+* Create or update `_current.json` which is used to calculate the differences between models the next time you generate a migration.
+* Create or update `_current_bak.json` which is used to calculate the differences between models the next time you generate a migration. This file is created in the second execution.
 
 ## Create a migration manually
 
@@ -140,7 +143,13 @@ More about it in the repo: [Sequelize-auto-migrations](https://github.com/ustart
 
 To illustrate how you should use migrations, lets use the *Animal* example shown in [Resolvers, using resolvers](resolvers.md#using-resolvers) section. For shortening the example, the resolver is omitted.
 
-For the follow type (omiting *query* and *mutation*):
+Before start remember that you have to:
+
+* Install the database drivers.
+* Add the database URL to the `.env` file.
+* Disable database sync and enable the migration at `datasources.js`.
+
+For the follow type:
 ```graphql
 # file: src/entities/Animal/animal.type.graphql
 type Animal {
@@ -148,6 +157,23 @@ type Animal {
   name: String
   age: Int
   category: String
+}
+
+type Query {
+  # Returns an animal by its ID
+  getAnimal(id: Int!): Animal
+
+  # Returns a list of animals that matches name
+  getAnimalsByName(name: String!): [Animal]
+}
+
+type Mutation {
+  # Register one animal and returns the record
+  addAnimal(
+    name: String,
+    age: Int,
+    category: String
+  ): Animal
 }
 ```
 
@@ -178,7 +204,90 @@ The above model is our version 1.0. Let's create the initial migration:
 npx ustart migration:autogenerate --name "initial-migration"
 ```
 
-[TODO: ADD COMMAND OUTPUT]
+The command output:
+
+```shell
+# ...build process output...
+
+[Actions] createTable "animals", deps: []
+New migration to revision 1 has been saved to file 'FULL-PATH-TO-YOUR-PROJECT/animals-example/migrations/1-initial-migration.js'
+```
+
+Two files were created in the migrations folder:
+
+* `_current.json` [explained previosly](migrations.md#creating-a-migration-autogenerate).
+* `1-initial-migrations.js` is your migration, let's look inside it:
+
+```js
+'use strict';
+
+var Sequelize = require('sequelize');
+
+/**
+ * Actions summary:
+ *
+ * createTable "animals", deps: []
+ *
+ **/
+
+var info = {
+    "revision": 1,
+    "name": "initial-migration",
+    "created": "2019-09-05T16:06:48.678Z",
+    "comment": ""
+};
+
+var migrationCommands = [{
+    fn: "createTable",
+    params: [
+        "animals",
+        {
+            "id": {
+                "type": Sequelize.INTEGER,
+                "field": "id",
+                "autoIncrement": true,
+                "primaryKey": true
+            },
+            "name": {
+                "type": Sequelize.STRING(10),
+                "field": "name"
+            },
+            "age": {
+                "type": Sequelize.INTEGER,
+                "field": "age"
+            },
+            "category": {
+                "type": Sequelize.STRING(20),
+                "field": "category"
+            }
+        },
+        {}
+    ]
+}];
+
+module.exports = {
+    pos: 0,
+    up: function(queryInterface, Sequelize)
+    {
+        var index = this.pos;
+        return new Promise(function(resolve, reject) {
+            function next() {
+                if (index < migrationCommands.length)
+                {
+                    let command = migrationCommands[index];
+                    console.log("[#"+index+"] execute: " + command.fn);
+                    index++;
+                    queryInterface[command.fn].apply(queryInterface, command.params).then(next, reject);
+                }
+                else
+                    resolve();
+            }
+            next();
+        });
+    },
+    info: info
+};
+```
 
 Go on and run the migration (make sure the database does not have the table).
 
@@ -186,11 +295,27 @@ Go on and run the migration (make sure the database does not have the table).
 npx ustart db:migrate
 ```
 
-[TODO: ADD COMMAND OUTPUT]
+The command output:
 
-Look at your database, the table `animals` with its four attributes must be there.
+```shell
+Sequelize CLI [Node: 8.9.4, CLI: 5.5.1, ORM: 5.18.1]
 
-Now, for our version 2.0 we are going to add a field: `size` of string type.
+Parsed url postgres://localhost:5432/animals-example
+File: _current.json does not match pattern: /\.js$/
+File: _current.json does not match pattern: /\.js$/
+File: _current.json does not match pattern: /\.js$/
+== 1-initial-migration: migrating =======
+[#0] execute: createTable
+== 1-initial-migration: migrated (0.881s)
+```
+
+You can ignore the lines about `_current.json`.
+
+Look at your database, the table `animals` with its four attributes must be there along with `SequelizeMeta`.
+
+![Table list for version 1](assets/migrations-show-tables-version-1.png)
+
+Now, for our version 2.0 we are going to add a field: `size` of type string.
 
 First, add it in the graphql type:
 
@@ -201,7 +326,7 @@ type Animal {
   name: String
   age: Int
   category: String
-  size: String # new field
+  size: String # <-- new field
 }
 ```
 
@@ -221,7 +346,7 @@ ustart.defineModel("postgres", "animal", {
   name: { type: Sequelize.STRING(10) },
   age: { type: Sequelize.INTEGER },
   category: { type: Sequelize.STRING(20) },
-  size: { type: Sequelize.STRING(20) } // New field!
+  size: { type: Sequelize.STRING(20) } // <-- new field!
 }, {
   timestamps: false
 });
@@ -233,14 +358,102 @@ Then create the migration file:
 npx ustart migration:autogenerate --name "animal-add-column-size"
 ```
 
-[TODO: ADD COMMAND OUTPUT]
+The command output:
 
-Go on and run the migration.
+```js
+# ...build process output...
+[Actions] addColumn "size" to table "animals"
+New migration to revision 2 has been saved to file 'FULL-PATH-TO-YOUR-PROJECT/animals-example/migrations/2-animal-add-column-size.js'
+````
+
+Two files were created in the migrations folder:
+
+* `_current_back.json` [explained previosly](migrations.md#creating-a-migration-autogenerate).
+* `2-animal-add-column-size.js` is your second migration, let's look inside it:
+
+```js
+'use strict';
+
+var Sequelize = require('sequelize');
+
+/**
+ * Actions summary:
+ *
+ * addColumn "size" to table "animals"
+ *
+ **/
+
+var info = {
+    "revision": 2,
+    "name": "animal-add-column-size",
+    "created": "2019-09-05T17:52:52.869Z",
+    "comment": ""
+};
+
+var migrationCommands = [{
+    fn: "addColumn",
+    params: [
+        "animals",
+        "size",
+        {
+            "type": Sequelize.STRING(20),
+            "field": "size"
+        }
+    ]
+}];
+
+module.exports = {
+    pos: 0,
+    up: function(queryInterface, Sequelize)
+    {
+        var index = this.pos;
+        return new Promise(function(resolve, reject) {
+            function next() {
+                if (index < migrationCommands.length)
+                {
+                    let command = migrationCommands[index];
+                    console.log("[#"+index+"] execute: " + command.fn);
+                    index++;
+                    queryInterface[command.fn].apply(queryInterface, command.params).then(next, reject);
+                }
+                else
+                    resolve();
+            }
+            next();
+        });
+    },
+    info: info
+};
+
+```
+
+Go on and run the migration:
 
 ```shell
 npx ustart db:migrate
 ```
 
-[TODO: ADD COMMAND OUTPUT]
+The command output:
 
-Look at your database, if it matches the last model's version then congratulations, you have your first migrations flow done!.
+```js
+Sequelize CLI [Node: 8.9.4, CLI: 5.5.1, ORM: 5.18.1]
+
+Parsed url postgres://localhost:5432/animals-example
+File: _current.json does not match pattern: /\.js$/
+File: _current_bak.json does not match pattern: /\.js$/
+File: _current.json does not match pattern: /\.js$/
+File: _current_bak.json does not match pattern: /\.js$/
+File: _current.json does not match pattern: /\.js$/
+File: _current_bak.json does not match pattern: /\.js$/
+== 2-animal-add-column-size: migrating =======
+[#0] execute: addColumn
+== 2-animal-add-column-size: migrated (0.178s)
+```
+
+You can ignore the lines about `_current.json` and `_current_bak.json`.
+
+The follow image shows both migrations record and the new `size` column of table `animals`:
+
+![Table list for version 2](assets/migrations-show-tables-version-2.png)
+
+If your database matches the image, congratulations then, you have done your first migrations flow!.
