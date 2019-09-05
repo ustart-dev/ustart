@@ -35,12 +35,12 @@ class Ustart {
     const library = Utils.datasourceToLibrary(datasource);
     if (library === "sequelize") {
       this.datasources[datasource] = new Sequelize(uri, options);
-      if (ustartOptions.enableMigration) {
+      if (ustartOptions && ustartOptions.enableMigration) {
         this.migration = { datasource, uri };
       }
     } else if (library === "mongoose") {
       this.datasources[datasource] = mongoose.connect(uri, options);
-      if (ustartOptions.enableMigration) {
+      if (ustartOptions && ustartOptions.enableMigration) {
         console.log("Migrations only works with Sequelize data sources.");
       }
     }
