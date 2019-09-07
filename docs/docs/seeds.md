@@ -18,7 +18,7 @@ If `NODE_ENV` is set to:
 * **testing**: It executes `populateBasicData()` then `testingMocking()`. This mode forces database destruction and reconstruction before populate it.
 * **dev-clean**: Special model intended to help you improve your development experience. It executes `populateBasicData()` then `populateFakeData()`. This mode forces database destruction and reconstruction before populate it.
 
-> Database sync have a direct impact on all above modes. If sync is disabled the database structure is not affected at all. More details on [Database sync](datasources.md).
+> Database sync have a direct impact on all above modes. If sync is disabled the database structure is not affected at all. More details on [Database sync](migrations.md#database-sync).
 
 ## Structure
 
