@@ -12,6 +12,7 @@
       "datasources",
       "models",
       "migrations",
+      "seeds",
       "permissions",
       "subscriptions",
       "schema-directives",
