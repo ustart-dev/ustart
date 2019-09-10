@@ -18,6 +18,7 @@
       "schema-directives",
       "mocking",
       "email",
+      "testing",
       "build-deploy"
     ],
     "API": ["commands"]
