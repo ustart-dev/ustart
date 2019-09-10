@@ -59,7 +59,7 @@ const siteConfig = {
   /* Colors for website */
   colors: {
     primaryColor: '#0091C8',
-    secondaryColor: '#205C3B',
+    secondaryColor: '#0076a3',
   },
 
   gaTrackingId: 'UA-129019450-2',
