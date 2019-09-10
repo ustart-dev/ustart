@@ -98,7 +98,7 @@ class Index extends React.Component {
         <MarkdownBlock>
           The content of this documentation is being actively modified to reach the version 1.0.
           We will add docs versioning when its ready.
-          
+
           Many sections and examples are missing and they will be created as we go,
           so take a look at this page constantly to see docs improvements.
         </MarkdownBlock>
@@ -146,19 +146,25 @@ class Index extends React.Component {
     );
 
     const Features = () => (
-      <Block layout="fourColumn">
+      <Block layout="threeColumn">
         {[
           {
-            content: 'This is the content of my feature',
-            image: `${baseUrl}img/docusaurus.svg`,
+            content: 'Tired of reading tons of tutorials about how to structure a complex NodeJS backend. Start right away and focus on the business logic.',
+            image: `${baseUrl}img/features/ready-2.svg`,
             imageAlign: 'top',
-            title: 'Feature One',
+            title: 'Ready to use',
           },
           {
-            content: 'The content of my second feature',
-            image: `${baseUrl}img/docusaurus.svg`,
+            content: 'Amazing technologies are embedded, so you just have to use them: Sequelize, Mongoose, Graphql shield and more.',
+            image: `${baseUrl}img/features/integration-2.svg`,
             imageAlign: 'top',
-            title: 'Feature Two',
+            title: 'Tightly integration',
+          },
+          {
+            content: 'Don\'t stay behind. Move to the next big thing and forget about all those old REST APIs. GraphQL is here to stay.',
+            image: `${baseUrl}img/features/GraphQL_Logo.svg`,
+            imageAlign: 'top',
+            title: 'GraphQL',
           },
         ]}
       </Block>
@@ -197,11 +203,11 @@ class Index extends React.Component {
       <div>
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
-          {/*<Features />*/}
-          <FeatureCallout />
+          <Features />
+          {/*<FeatureCallout />*/}
           {/*}<LearnHow />
-          {/*}<TryOut />
-          <Description />
+          <TryOut />
+          <Description />*/}
           {/*<Showcase />*/}
         </div>
       </div>
