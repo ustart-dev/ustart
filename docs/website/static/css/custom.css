@@ -32,6 +32,10 @@
   font-size: 24px;
 }
 
+.imageAlignTop .blockImage {
+  max-width: 200px;
+}
+
 /* your custom css */
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {

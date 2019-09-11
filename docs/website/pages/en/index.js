@@ -113,8 +113,8 @@ class Index extends React.Component {
       <Block id="try">
         {[
           {
-            content: 'Talk about trying this out',
-            image: `${baseUrl}img/docusaurus.svg`,
+            content: 'Get up and running quickly without wasting time!',
+            image: `${baseUrl}img/try-it-out/init-cmd.png`,
             imageAlign: 'left',
             title: 'Try it Out',
           },
@@ -209,9 +209,9 @@ class Index extends React.Component {
         <div className="mainContainer">
           <Features />
           {/*<FeatureCallout />*/}
-          {/*}<LearnHow />
+          <LearnHow />
           <TryOut />
-          <Description />*/}
+          {/*<Description />*/}
           {/*<Showcase />*/}
         </div>
       </div>
