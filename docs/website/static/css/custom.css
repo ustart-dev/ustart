@@ -1,6 +1,54 @@
+.mainContainer {
+  padding-top: 0px;
+}
+.darker {
+  background-color: #2b3137;
+}
+
+.homeContainer {
+  background-color: #2b3137;
+}
+
+.innerHome {
+  margin: 1em auto;
+  max-width: 1100px;
+  padding: 0 20px;
+}
+
+.projectTitle {
+  color: #fff;
+  font-size: 56px;
+  margin: 0;
+  text-align: left;
+  margin-bottom: 0.5em;
+}
+
+.projectTitle img {
+  float: right;
+  width: 200px;
+}
+
+.buttonWrapper .button {
+  font-size: 24px;
+}
+
 /* your custom css */
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+  .projectTitle {
+    color: #fff;
+    font-size: 36px;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+
+  .projectTitle img {
+    float: none;
+    display: block;
+    width: 200px;
+    margin: 0 auto 30px auto;
+  }
 }
 
 @media only screen and (min-width: 1024px) {

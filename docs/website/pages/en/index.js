@@ -31,15 +31,16 @@ class HomeSplash extends React.Component {
 
     const Logo = props => (
       <div className="projectLogo">
-        <img src={props.img_src} alt="Project Logo" />
+        <img src={props.img_src} alt="uStart" />
       </div>
     );
 
-    const ProjectTitle = () => (
-      <h2 className="projectTitle">
-        {siteConfig.title}
-        <small>{siteConfig.tagline}</small>
-      </h2>
+    const ProjectTitle = props => (
+      <h1 className="projectTitle">
+        {/*siteConfig.title*/}
+        <img src={props.img_src} alt="uStart" />
+        {siteConfig.tagline}
+      </h1>
     );
 
     const PromoSection = props => (
@@ -60,9 +61,12 @@ class HomeSplash extends React.Component {
 
     return (
       <SplashContainer>
-        {/*}<Logo img_src={`${baseUrl}img/docusaurus.svg`} />*/}
-        <div className="inner">
-          <ProjectTitle siteConfig={siteConfig} />
+        {/*<Logo img_src={`${baseUrl}img/icono-ustart.svg`} />*/}
+        <div className="innerHome">
+          <ProjectTitle
+            siteConfig={siteConfig}
+            img_src={`${baseUrl}img/icono-ustart.svg`}
+          />
           <PromoSection>
             <Button href={docUrl('installation.html')}>Getting Started</Button>
           </PromoSection>
@@ -79,7 +83,7 @@ class Index extends React.Component {
 
     const Block = props => (
       <Container
-        padding={['bottom', 'top']}
+        padding={props.padding || ['bottom', 'top']}
         id={props.id}
         background={props.background}>
         <GridBlock
