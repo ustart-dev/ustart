@@ -17,7 +17,7 @@
 
 .projectTitle {
   color: #fff;
-  font-size: 56px;
+  font-size: 52px;
   margin: 0;
   text-align: left;
   margin-bottom: 0.5em;
@@ -34,6 +34,10 @@
 
 .imageAlignTop .blockImage {
   max-width: 200px;
+}
+
+#learnHow img {
+  width: 300px;
 }
 
 /* your custom css */

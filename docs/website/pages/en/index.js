@@ -137,11 +137,11 @@ class Index extends React.Component {
     );
 
     const LearnHow = () => (
-      <Block background="light">
+      <Block background="light" id="learnHow">
         {[
           {
-            content: 'Talk about learning how to use this',
-            image: `${baseUrl}img/docusaurus.svg`,
+            content: 'Follow a [basic example](docs/first-example-1) and learn how it works',
+            image: `${baseUrl}img/learn-how/book_lover.svg`,
             imageAlign: 'right',
             title: 'Learn How',
           },
