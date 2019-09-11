@@ -6,6 +6,8 @@
 }
 
 .homeContainer {
+  padding-top: 40px;
+  padding-bottom: 40px;
   background-color: #2b3137;
 }
 
@@ -34,6 +36,10 @@
 
 .imageAlignTop .blockImage {
   max-width: 200px;
+}
+
+#features img {
+  height: 150px;
 }
 
 #learnHow img {

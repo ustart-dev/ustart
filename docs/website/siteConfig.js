@@ -23,7 +23,7 @@ const users = [
 const siteConfig = {
   title: 'uStart', // Title for your website.
   // tagline: 'NodeJS framework for building GraphQL backends using Apollo, Sequelize, Mongoose, Graphql shield and other great tools',
-  tagline: 'uStart makes it quick and easy to start and maintain a new backend project',
+  tagline: 'uStart makes it quick and easy to start and maintain a new backend project.',
   url: 'https://ustart-dev.github.io', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:

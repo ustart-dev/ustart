@@ -140,7 +140,7 @@ class Index extends React.Component {
       <Block background="light" id="learnHow">
         {[
           {
-            content: 'Follow a [basic example](docs/first-example-1) and learn how it works',
+            content: 'Follow a [basic example](docs/first-example-1) and learn how it works.',
             image: `${baseUrl}img/learn-how/book_lover.svg`,
             imageAlign: 'right',
             title: 'Learn How',
@@ -150,17 +150,17 @@ class Index extends React.Component {
     );
 
     const Features = () => (
-      <Block layout="threeColumn">
+      <Block layout="threeColumn" id="features">
         {[
           {
             content: 'Tired of reading tons of tutorials about how to structure a complex NodeJS backend. Start right away and focus on the business logic.',
-            image: `${baseUrl}img/features/ready-2.svg`,
+            image: `${baseUrl}img/features/programmer.svg`,
             imageAlign: 'top',
             title: 'Ready to use',
           },
           {
             content: 'Amazing technologies are embedded, so you just have to use them: Sequelize, Mongoose, Graphql shield and more.',
-            image: `${baseUrl}img/features/integration-2.svg`,
+            image: `${baseUrl}img/features/mind_map.svg`,
             imageAlign: 'top',
             title: 'Tightly integration',
           },
