@@ -48,7 +48,8 @@ export const PLUGINS_DIR = "plugins";
 /**
  * Plugin path.
 */
-export const PLUGINS_PATH = `${appRoot}/${PLUGINS_DIR}`;
+// export const PLUGINS_PATH = `${appRoot}/${PLUGINS_DIR}`;
+export const PLUGINS_PATH = `${SRC_PATH}/${PLUGINS_DIR}`;
 
 /**
  * Entities folder.
