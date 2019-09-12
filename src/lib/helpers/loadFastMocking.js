@@ -36,7 +36,7 @@ function loadFastMocking() {
   const fastMocks = {};
 
   fileLoader(
-    `{${ENTITIES_PATH}/${FASTMOCKS_GLOB},/${PLUGINS_PATH}/${FASTMOCKS_GLOB}}`,
+    `{${ENTITIES_PATH}/${FASTMOCKS_GLOB},${PLUGINS_PATH}/${FASTMOCKS_GLOB}}`,
     { all: true, extensions: ['.js'] }
   ).forEach(
     e => _merge(fastMocks, e)
