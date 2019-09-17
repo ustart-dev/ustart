@@ -31,6 +31,7 @@ After you have initialized a project with `npx ustart-cli init`, it will create 
 |   |   +-- graphql.js
 |   +-- models/
 |   |   +--associations.js
+|   +-- plugins/
 |   +-- shield/
 |   |   +-- options.js
 |   |   +-- rules.js
@@ -48,6 +49,7 @@ After you have initialized a project with `npx ustart-cli init`, it will create 
 * **src/entities**: Contains the graphql schemas (types), resolvers, database models, permissions and mocking.
 * **src/middlewares**: Contains the middlewares to be loaded by uStart. `express.js` defines the express middlewares to be passed to `graphql-yoga` server (by default includes cors y compression). `graphql.js` defines the resolver middlewares, it uses `graphql-middleware` package.
 * **src/models**: `associations.js` establishes the Sequelize associations.
+* **src/plugins**: Plugins folder.
 * **src/shield**: `options.js` defines the `graphql-shield` options. Use `rules.js` to implement your shield rules.
 * **src/subscription**: Contains the subscription instance.
 
