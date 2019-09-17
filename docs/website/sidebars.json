@@ -19,6 +19,7 @@
       "mocking",
       "email",
       "testing",
+      "plugins",
       "build-deploy"
     ],
     "API": ["commands"]
