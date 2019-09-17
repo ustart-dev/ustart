@@ -24,7 +24,7 @@ Plugins must be installed in `plugins` folder:
 
 ## Plugin list
 
-The official plugins: https://github.com/ustart-dev/ustart-plugins.
+The official plugins: https://github.com/ustart-dev/ustart-plugins#ustart-plugins.
 
 If you develop a feature that you think it may be helpful to others, don't hesitate and send us a PR!
 
