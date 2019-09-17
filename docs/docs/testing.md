@@ -9,7 +9,7 @@ Automated testing is critical because it allows you to run a far greater set of 
 
 ## Structure
 
-uStart comes with [Jest](https://jestjs.io/docs/en/22.x/getting-started.html) as development dependency. We have also created a structure and included a test example for you.
+uStart comes with [Jest](https://jestjs.io/docs/en/23.x/getting-started.html) as development dependency. We have also created a structure and included a test example for you.
 
  `__tests__` folder is the place to organize your test.
 
