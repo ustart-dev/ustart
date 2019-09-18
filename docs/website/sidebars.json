@@ -22,7 +22,10 @@
       "plugins",
       "build-deploy"
     ],
-    "API": ["commands"]
+    "API": ["commands"],
+    "Examples": [
+      "3rd-party-services"
+    ]
   },
   "docs-other": {
     "First Category": ["doc4", "doc5"]
