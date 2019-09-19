@@ -90,11 +90,75 @@ Start the server `npm run start`, then open your playground and send a query
 
 ![Query results first query](assets/3rd-party-example-playground-first-query.png)
 
-We have tagged this step as ["first query"](https://github.com/ustart-dev/ustart-examples/releases/tag/first-query).
+You can download the full code of this step using the tag ["first-query"](https://github.com/ustart-dev/ustart-examples/releases/tag/first-query).
 
 ## People query
 
-Soon...
+In the previous step we implemented our first query: `getPerson`. Now we are going to create `getPeople` query.
+
+Open `people.type.graphql` file and add `getPeople(page: Int, search: String): [People]` inside of *Query* type
+
+```graphql
+type People {
+  # ....
+}
+
+type Query {
+  getPerson(id: Int!): People
+
+  getPeople(page: Int, search: String): [People]
+}
+```
+
+Open `people.resolvers.js` script and add the function `getPeople`
+
+```js
+const axios = require('axios');
+
+const peopleResolvers = {
+  Query: {
+    getPerson: (root, args) => {
+      return axios.get(`https://swapi.co/api/people/${args.id}`).then(response => response.data);
+    },
+    getPeople: (root, args) => {
+      const params = {};
+
+      if (args.page) {
+        params.page = args.page;
+      }
+
+      if (args.search) {
+        params.search = args.search;
+      }
+
+      return axios.get('https://swapi.co/api/people', { params }).then(
+        response => response.data.results
+      );
+    },
+  }
+};
+
+export default peopleResolvers;
+```
+
+Let's check if everything is ok. First, execute an empty query
+
+![empty query to getPeople](assets/3rd-party-example/get-people-empty-query.png)
+
+Let's check if search works properly by searching for `anak`
+
+![anak search to getPeople](assets/3rd-party-example/get-people-anak-search.png)
+
+Now, let's try pagination. Let's query for page 1 and page 2
+
+![page 1 of getPeople](assets/3rd-party-example/get-people-page-1.png)
+
+![page 2 of getPeople](assets/3rd-party-example/get-people-page-2.png)
+
+It seems that everything works fine.
+
+You can download the full code of this step using the tag ["people-query"](https://github.com/ustart-dev/ustart-examples/releases/tag/people-query).
+
 
 ## Films API
 
