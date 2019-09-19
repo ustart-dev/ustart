@@ -88,7 +88,7 @@ export default peopleResolvers;
 
 Start the server `npm run start`, then open your playground and send a query
 
-![Query results first query](assets/3rd-party-example-playground-first-query.png)
+![Query results first query](assets/3rd-party-example/first-query-playground-results.png)
 
 You can download the full code of this step using the tag ["first-query"](https://github.com/ustart-dev/ustart-examples/releases/tag/first-query).
 
