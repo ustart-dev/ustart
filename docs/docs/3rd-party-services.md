@@ -335,6 +335,111 @@ Anyway, you can download the full code of this step using the tag ["vehicles-api
 
 ## Adding related fields
 
+One of the most powerful features of GraphQL is to include nested fields to retrieve related data.
+
+Through the previous steps, we have left a few fields for later implementation. Now its time to make them work.
+
+For example, the field `films` of `People` was not implemented. After this step, you could use it inside of a `getPerson` query to retrieve the `people` with id `1` and the films were it has participated.
+
+```graphql
+query getPerson(id: 1) {
+  name,
+  gender,
+  films {
+    title,
+    episode_id,
+    director
+  }
+}
+```
+
+We are going to show three implementations, the rest of them are on your own:
+
+* `homeworld` from *People*. Returns a single *Planet*.
+* `films` from *People*. Returns an array of *Film*.
+* `vehicles` from *People*. Returns an array of *Vehicle*.
+
+Let's do it!
+
+### homeworld
+
+First, open both schema file and resolver script of *People* entity.
+
+Add `homeworld: Planet` inside of *People* type at `people.type.graphql` file, as follow
+
+```graphql
+type People {
+  #....
+  homeworld: Planet
+}
+```
+
+Add `People` field after *Query*, in the `people.resolvers.js` script, with the following implementation
+
+```js
+const peopleResolvers = {
+  Query: {
+    // ....
+  },
+  People: {
+    homeworld(people) {
+      console.log(people);
+      return null;
+    }
+  }
+};
+```
+
+Let's send the follow query to see what the console log shows
+
+```graphql
+query {
+  getPerson(id: 1) {
+    name,
+    gender,
+    url,
+    homeworld {
+      name,
+      rotation_period,
+      url
+    }
+  }
+}
+```
+
+![console log of homeworld](assets/3rd-party-example/add-related-fields-console-log-people.png)
+
+[The Star Wars API](https://swapi.co) returns the URL to the resources in all those related fields. We can take advantage of this and use it to make an `axios` call.
+
+```js
+const peopleResolvers = {
+  Query: {
+    // ....
+  },
+  People: {
+    homeworld(people) {
+      // console.log(people);
+      // return null;
+      return axios.get(people.homeworld).then(response => response.data);
+    }
+  }
+};
+```
+
+Resend the query and...
+
+![query to homeworld](assets/3rd-party-example/add-related-fields-homeworld-query.png)
+
+Woohoo, it does work!
+
+You can download the full code of this step using the tag ["people-homeworld"](https://github.com/ustart-dev/ustart-examples/releases/tag/people-homeworld).
+
+### films
+
+Soon...
+
+### vehicles
+
 Soon...
 
 ## Conclusions
