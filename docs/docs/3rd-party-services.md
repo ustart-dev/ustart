@@ -48,7 +48,7 @@ First, let's make it work with `People` API. Create the entity `People` at `src/
 * people.type.graphql
 * people.resolvers.js
 
-Below is the `people` schema with only root fields. We are going to add related fields -`films`, `homeworld` and `vehicles` - after. Only `getPerson` query is implemented in this step.
+Below is the `people` schema with only root fields. We are going to add related fields -`films`, `homeworld` and `vehicles` - later. Only `getPerson` query is implemented in this step.
 
 ```graphql
 type People {
@@ -78,7 +78,9 @@ const axios = require('axios');
 const peopleResolvers = {
   Query: {
     getPerson: (root, args) => {
-      return axios.get(`https://swapi.co/api/people/${args.id}`).then(response => response.data);
+      return axios.get(`https://swapi.co/api/people/${args.id}`).then(
+        response => response.data
+      );
     },
   }
 };
@@ -118,7 +120,9 @@ const axios = require('axios');
 const peopleResolvers = {
   Query: {
     getPerson: (root, args) => {
-      return axios.get(`https://swapi.co/api/people/${args.id}`).then(response => response.data);
+      return axios.get(`https://swapi.co/api/people/${args.id}`).then(
+        response => response.data
+      );
     },
     getPeople: (root, args) => {
       const params = {};
@@ -162,7 +166,80 @@ You can download the full code of this step using the tag ["people-query"](https
 
 ## Films API
 
-Soon...
+Films API have two queries: `getFilm(id)` and `getFilms(page, search)`. Their business logic is the same than `People` API.
+
+Create the entity `Films` at `src/entities`, then its schema and resolver:
+
+* films.type.graphql
+* films.resolvers.js
+
+Below is the `film` schema with only root fields. We are going to add related fields -`planets` and `vehicles`- later.
+
+```graphql
+type Film {
+  title: String
+  episode_id: Int
+  opening_crawl: String
+  director: String
+  producer: String
+  release_date: String
+  created: String
+  edited: String
+  url: String
+}
+
+type Query {
+  getFilm(id: Int!): Film
+  getFilms(search: String): [Film]
+}
+```
+
+And the resolver
+
+```js
+const axios = require('axios');
+
+const filmResolvers = {
+  Query: {
+    getFilm: (root, args) => {
+      return axios.get(`https://swapi.co/api/films/${args.id}`).then(
+        response => response.data
+      );
+    },
+    getFilms: (root, args) => {
+      const params = {};
+
+      if (args.search) {
+        params.search = args.search;
+      }
+
+      return axios.get('https://swapi.co/api/films', { params }).then(
+        response => response.data.results
+      );
+    },
+  }
+};
+
+export default filmResolvers;
+```
+
+> `Films` API does not support pagination because there are few records.
+
+Let's check if everything is ok. First, query the record with ID `1` to `getFilm` query
+
+![query to getFilm with ID 1](assets/3rd-party-example/get-film-query.png)
+
+Let's continue with an empty query to `getFilms`
+
+![empty query to getFilm](assets/3rd-party-example/get-films-empty-query.png)
+
+And finally a search for `new` term
+
+![search for new term to getFilms](assets/3rd-party-example/get-films-search-new.png)
+
+It seems that everything works fine.
+
+You can download the full code of this step using the tag ["films-api"](https://github.com/ustart-dev/ustart-examples/releases/tag/films-api).
 
 ## Planets API
 
