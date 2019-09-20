@@ -436,7 +436,73 @@ You can download the full code of this step using the tag ["people-homeworld"](h
 
 ### films
 
-Soon...
+This case is a little different than `homeworld`. We have to return an array of data instead of a single result, thus we need to make several http queries (as many as the length of `people.films` array).
+
+Add `films: [Film]` inside of *People* type at `people.type.graphql` file, as follow
+
+```graphql
+type People {
+  #....
+  films: [Film]
+}
+```
+
+Add `films` function after *homeworld*, in the `people.resolvers.js` script, with the following implementation
+
+```js
+const peopleResolvers = {
+  //...
+  People: {
+    homeworld(people) {
+      //...
+    },
+    films(people) {
+      console.log(people.films);
+      return null;
+    }
+  }
+};
+```
+
+Let's send the follow query to see what we get
+
+```graphql
+query {
+  getPerson(id: 1) {
+    name,
+    gender,
+    url,
+    films {
+      title,
+      episode_id,
+      director
+    }
+  }
+}
+```
+
+![console.log of people.films](assets/3rd-party-example/add-related-fields-console-log-people-films.png)
+
+We have received an array of films, as expected. Now we have to perform one *axios* request per each URLs.
+
+In the resolver, add the follow implementation to `films(people)` function
+
+```js
+films(people) {
+  // console.log(people.films);
+  // return null;
+  let promisesArr = people.films.map(f => axios.get(f));
+  return Promise.all(promisesArr).then(res => res.map(r => r.data));
+}
+```
+
+Resend the query and...
+
+![query to films](assets/3rd-party-example/add-related-fields-films-query.png)
+
+It works! We have receive a person, *Luke Skywalker* in this case, and all the films where he has participated.
+
+You can download the full code of this step using the tag ["people-films"](https://github.com/ustart-dev/ustart-examples/releases/tag/people-films).
 
 ### vehicles
 
