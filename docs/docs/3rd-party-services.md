@@ -166,7 +166,7 @@ You can download the full code of this step using the tag ["people-query"](https
 
 ## Films API
 
-Films API have two queries: `getFilm(id)` and `getFilms(page, search)`. Their business logic is the same than `People` API.
+Films API have two queries: `getFilm(id)` and `getFilms(search)`. Their business logic is the same than `People` API.
 
 Create the entity `Films` at `src/entities`, then its schema and resolver:
 
@@ -242,5 +242,99 @@ It seems that everything works fine.
 You can download the full code of this step using the tag ["films-api"](https://github.com/ustart-dev/ustart-examples/releases/tag/films-api).
 
 ## Planets API
+
+Planets API have two queries: `getPlanet(id)` and `getPlanets(page, search)`. Their business logic is the same than rest of the API.
+
+Create the entity `Planets` at `src/entities`, then its schema and resolver:
+
+* planets.type.graphql
+* planets.resolvers.js
+
+Below is the `Planet` schema with only root fields. We are going to add related fields -`residents` and `films`- later.
+
+```graphql
+type Planet {
+  name: String
+  rotation_period: String
+  orbital_period: String
+  diameter: String
+  climate: String
+  gravity: String
+  terrain: String
+  surface_water: String
+  population: String
+  created: String
+  edited: String
+  url: String
+}
+
+type Query {
+  getPlanet(id: Int!): Planet
+  getPlanets(page: Int, search: String): [Planet]
+}
+```
+
+And the resolver
+
+```js
+const axios = require('axios');
+
+const planetResolvers = {
+  Query: {
+    getPlanet: (root, args) => {
+      return axios.get(`https://swapi.co/api/planets/${args.id}`).then(
+        response => response.data
+      );
+    },
+    getPlanets: (root, args) => {
+      const params = {};
+
+      if (args.page) {
+        params.page = args.page;
+      }
+
+      if (args.search) {
+        params.search = args.search;
+      }
+
+      return axios.get('https://swapi.co/api/planets', { params }).then(
+        response => response.data.results
+      );
+    },
+  }
+};
+
+export default planetResolvers;
+```
+
+Let's check if everything is ok. First, query the record with ID `2` to `getPlanet` query
+
+![query to getPlanet with ID 2](assets/3rd-party-example/get-planet-query-id-2.png)
+
+Let's continue with an empty query to `getPlanets`
+
+![empty query to getPlanets](assets/3rd-party-example/get-planets-empty-query.png)
+
+Now, let's query the page 2
+
+![query to getPlanets page 2](assets/3rd-party-example/get-planets-page-2.png)
+
+And finally a search for `tat` term
+
+![search for tat term to getPlanets](assets/3rd-party-example/get-planets-search-for-tat.png)
+
+It seems that everything works fine.
+
+You can download the full code of this step using the tag ["planets-api"](https://github.com/ustart-dev/ustart-examples/releases/tag/planets-api).
+
+## Vehicles API
+
+Soon...
+
+## Adding related fields
+
+Soon...
+
+## Conclusions
 
 Soon...
