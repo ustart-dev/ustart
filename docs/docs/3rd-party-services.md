@@ -329,7 +329,9 @@ You can download the full code of this step using the tag ["planets-api"](https:
 
 ## Vehicles API
 
-Soon...
+Vehicles API is the same than rest of the API. Try to code it yourself.
+
+Anyway, you can download the full code of this step using the tag ["vehicles-api"](https://github.com/ustart-dev/ustart-examples/releases/tag/vehicles-api). Use it to compare your results!
 
 ## Adding related fields
 
