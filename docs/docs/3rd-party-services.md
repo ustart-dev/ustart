@@ -357,7 +357,7 @@ We are going to show three implementations, the rest of them are on your own:
 
 * `homeworld` from *People*. Returns a single *Planet*.
 * `films` from *People*. Returns an array of *Film*.
-* `vehicles` from *People*. Returns an array of *Vehicle*.
+* `vehicles` from *Films*. Returns an array of *Vehicle*.
 
 Let's do it!
 
@@ -506,7 +506,101 @@ You can download the full code of this step using the tag ["people-films"](https
 
 ### vehicles
 
-Soon...
+This case is the same than [films](3rd-party-services.md#films). We have to return an array of data instead of a single result, thus we need to make several http queries (as many as the length of `film.vehicles` array).
+
+> By implementing this field we are going to able to make a three level query: `getPerson` -> `films` -> `vehicles`.
+
+Open both schema file and resolver script of *Films* entity.
+
+Add `vehicles: [Vehicle]` inside of *Film* type at `films.type.graphql` file, as follow
+
+```graphql
+type Film {
+  #....
+  vehicles: [Vehicle]
+}
+```
+
+Add `Film` field after *Query*, in the `films.resolvers.js` script, with the following implementation
+
+```js
+const filmResolvers = {
+  Query: {
+    //...
+  },
+  Film: {
+    vehicles(film) {
+      console.log(film.vehicles);
+      return null;
+    }
+  }
+};
+```
+
+Let's send the follow query to see what we get
+
+```graphql
+query {
+  getFilm(id: 1) {
+    title,
+    episode_id,
+    director,
+    vehicles {
+      name,
+      model,
+      cargo_capacity
+    }
+  }
+}
+```
+
+![console.log of films.vehicles](assets/3rd-party-example/add-related-fields-console-log-vehicles.png)
+
+We have received an array of vehicles, as expected. Now we have to perform one *axios* request per each URLs.
+
+In the resolver, add the follow implementation to `vehicles(film)` function
+
+```js
+vehicles(film) {
+  // console.log(film.vehicles);
+  // return null;
+  let promisesArr = film.vehicles.map(v => axios.get(v));
+  return Promise.all(promisesArr).then(res => res.map(r => r.data));
+}
+```
+
+Resend the query and...
+
+![query to films](assets/3rd-party-example/add-related-fields-vehicles-query.png)
+
+It works! We have received a film, *A New Hope* in this case, and all the vehicles that appeared.
+
+Now, let's send a three level query
+
+```graphql
+query {
+  getPerson(id: 1) {
+    name,
+    films {
+      title,
+      vehicles {
+        name,
+        model
+      }
+    }
+  }
+}
+```
+
+The playground output in two images (it is larger actually...)
+
+![query to films](assets/3rd-party-example/add-related-fields-vehicles-three-level-query-1.png)
+
+![query to films](assets/3rd-party-example/add-related-fields-vehicles-three-level-query-2.png)
+
+Very good, everything just worked!
+
+You can download the full code of this step using the tag ["films-vehicles"](https://github.com/ustart-dev/ustart-examples/releases/tag/films-vehicles).
 
 ## Conclusions
 
