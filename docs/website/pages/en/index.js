@@ -81,6 +81,9 @@ class Index extends React.Component {
     const {config: siteConfig, language = ''} = this.props;
     const {baseUrl} = siteConfig;
 
+    const nextReleaseDocs = `${siteConfig.baseUrl}${siteConfig.docsUrl}/${
+      this.props.language ? this.props.language + '/' : ''}next/installation`;
+
     const Block = props => (
       <Container
         padding={props.padding || ['bottom', 'top']}
@@ -91,6 +94,16 @@ class Index extends React.Component {
           contents={props.children}
           layout={props.layout}
         />
+      </Container>
+    );
+
+    const Announcement = () => (
+      <Container className="smallPadding announcementSection" padding="top bottom" background="light">
+        <h2>
+          Currently we are working on <a href={nextReleaseDocs}>uStart 2.0</a> (it is in alpha stage).
+          <br />
+          <a href={nextReleaseDocs}>Give it a try!</a>
+        </h2>
       </Container>
     );
 
@@ -206,6 +219,7 @@ class Index extends React.Component {
     return (
       <div>
         <HomeSplash siteConfig={siteConfig} language={language} />
+        <Announcement />
         <div className="mainContainer">
           <Features />
           {/*<FeatureCallout />*/}
