@@ -90,7 +90,20 @@ export default peopleResolvers;
 
 Start the server `npm run start`, then open your playground and send a query
 
+```graphql
+query {
+  getPerson(id: 1) {
+    name,
+    gender,
+    birth_year,
+    eye_color
+  }
+}
+```
+
 ![Query results first query](assets/3rd-party-example/first-query-playground-results.png)
+
+It seems that everything works fine.
 
 You can download the full code of this step using the tag ["first-query"](https://github.com/ustart-dev/ustart-examples/releases/tag/first-query).
 
