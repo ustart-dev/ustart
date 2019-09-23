@@ -617,4 +617,10 @@ You can download the full code of this step using the tag ["films-vehicles"](htt
 
 ## Conclusions
 
-Soon...
+We have gone a step by step of how to build a GraphQL API of [The Star Wars API](https://swapi.co). The goal was to show how to connect third party services, in this case, a REST API.
+
+We have shown how to retrieve single results, arrays of data and also nested queries (even a three level one!).
+
+Besides of implementing a part of the Star Wars API, the [example](https://github.com/ustart-dev/ustart-examples) lacks of many features that a real application needs. You can see many point of improvements from packaging *axios* calls to proper error handling.
+
+Hope it was helpful. If you like it, remember to give a [star on GitHub](https://github.com/ustart-dev/ustart) ;-)
