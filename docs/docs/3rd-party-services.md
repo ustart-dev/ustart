@@ -39,10 +39,6 @@ npm install axios
 
 > `axios` is a promise based HTTP client for the browser and node.js. It help us to query `swapi.co`.
 
-## Architecture
-
-[PENDING] Schema (graphql) -> Resolver -> SWAPI
-
 ## First query
 
 First, let's make it work with `People` API. Create the entity `People` at `src/entities`, then its schema and resolver:
