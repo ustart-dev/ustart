@@ -3,7 +3,9 @@ id: 3rd-party-services
 title: 3rd party services
 ---
 
-This is a walkthrough of how to expose 3rd party services using uStart. We are going to use [The Star Wars API](https://swapi.co) to create a GraphQL wrapper.
+This is a walkthrough of how to expose 3rd party services using uStart. We are going to use [The Star Wars API](https://swapi.co) to create a GraphQL API.
+
+You are going to find how to retrieve single results, arrays of data and nested queries (even a three level one!).
 
 You can jump to the full example [here](https://github.com/ustart-dev/ustart-examples/tree/master/star-wars) or follow the step by step.
 
