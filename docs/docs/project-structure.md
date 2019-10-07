@@ -58,7 +58,7 @@ After you have initialized a project with `npx ustart-cli init`, it will create 
 
 Use it to define your own environment variables. It is also used by uStart, the framework options are:
 
-* **NODE_ENV**: `development`, `testing`, `dev-clean` and `production`.
+* **NODE_ENV**: `development`, `test`, `dev-clean` and `production`.
 * **GRAPHQL_ENDPOINT_PORT**: Port to listen. default `4000`.
 * **FAST_MOCKING**: By default it value is `false`. When is set to `true`, uStart will respond with the mocking files located in every entity instead of using the resolver script. Use it for fast prototype.
 * **PG_URI**: URI to PostgreSQL. This name is not mandatory, you can change it for another one.

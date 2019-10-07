@@ -11,7 +11,7 @@
  * dev-clean mode: database is destroyed and as a safty check it must have '_test' suffix in the name.
  * It is populated with basic data and fake data (executing populateFakeData function).
  *
- * testing mode: database is destroyed and as a safty check it must have '_test' suffix in the name.
+ * test mode: database is destroyed and as a safty check it must have '_test' suffix in the name.
  * It is populated with basic data and testing data (executing testingMocking function).
  * This mode is intended to be use with testing, for example end to end tests.
  *
@@ -47,7 +47,7 @@ async function loadDatabaseData() {
     await ustart.syncDatasources({ force: true, match: /_test$/ });
     await populateBasicData();
     await populateFakeData();
-  } else if (process.env.NODE_ENV === "testing") {
+  } else if (process.env.NODE_ENV === "test") {
     // NOTE: The database name must have '_test' suffix
     await ustart.syncDatasources({ force: true, match: /_test$/ });
     await populateBasicData();

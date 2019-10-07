@@ -15,7 +15,7 @@ If `NODE_ENV` is set to:
 
 * **production**: Execute `populateBasicData()` function. This mode creates the database, if not exists, before populate it.
 * **development**: Executes `populateBasicData()` function. This mode creates the database, if not exists, before populate it.
-* **testing**: It executes `populateBasicData()` then `testingMocking()`. This mode forces database destruction and reconstruction before populate it.
+* **test**: It executes `populateBasicData()` then `testingMocking()`. This mode forces database destruction and reconstruction before populate it.
 * **dev-clean**: Special model intended to help you improve your development experience. It executes `populateBasicData()` then `populateFakeData()`. This mode forces database destruction and reconstruction before populate it.
 
 > Database sync have a direct impact on all above modes. If sync is disabled the database structure is not affected at all. More details on [Database sync](migrations.md#database-sync).
