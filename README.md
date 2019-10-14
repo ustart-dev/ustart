@@ -53,4 +53,4 @@ Press the play icon in the middle of both panels, then the right panel should sh
 
 If the response is the same you are ready to play!.
 
-Go and try our first example on [ustart.dev](https://ustart.dev/docs/next/first-example-1).
+Go and try our first example on [ustart.dev](https://ustart.dev/docs/first-example-1).
