@@ -8,7 +8,7 @@ title: CLI Commands
 ```
 $ mkdir your-awesome-project
 $ cd your-awesome-project
-$ npx ustart-cli@alpha init
+$ npx ustart-cli init
 ```
 
 ## Usage

@@ -61,7 +61,7 @@ Create a new project. Let's name it `empty-example` and initialize it:
 ```shell
 mkdir empty-example
 cd empty-example
-npx ustart-cli@alpha init
+npx ustart-cli init
 ```
 
 Start it:

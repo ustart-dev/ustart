@@ -28,7 +28,7 @@ Initialize a new uStart project
 
 ```shell
 mkdir star-wars && cd $_
-npx ustart-cli@alpha init
+npx ustart-cli init
 ```
 
 Once it is ready, we have to install [axios](https://github.com/axios/axios) as dependency.
