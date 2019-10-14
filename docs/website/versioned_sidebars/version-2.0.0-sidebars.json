@@ -1,0 +1,38 @@
+{
+  "version-2.0.0-docs": {
+    "Getting Started": [
+      "version-2.0.0-installation",
+      "version-2.0.0-first-example-1",
+      "version-2.0.0-first-example-2",
+      "version-2.0.0-project-structure"
+    ],
+    "Guides": [
+      "version-2.0.0-schema",
+      "version-2.0.0-resolvers",
+      "version-2.0.0-datasources",
+      "version-2.0.0-models",
+      "version-2.0.0-migrations",
+      "version-2.0.0-seeds",
+      "version-2.0.0-permissions",
+      "version-2.0.0-subscriptions",
+      "version-2.0.0-schema-directives",
+      "version-2.0.0-mocking",
+      "version-2.0.0-email",
+      "version-2.0.0-testing",
+      "version-2.0.0-plugins",
+      "version-2.0.0-build-deploy"
+    ],
+    "API": [
+      "version-2.0.0-commands"
+    ],
+    "Examples": [
+      "version-2.0.0-3rd-party-services"
+    ]
+  },
+  "version-2.0.0-docs-other": {
+    "First Category": [
+      "version-2.0.0-doc4",
+      "version-2.0.0-doc5"
+    ]
+  }
+}
