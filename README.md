@@ -17,10 +17,8 @@ cd awesome-project
 Initialize with the ustart CLI. This will create the project structure and
 install all NPM dependencies for you
 ```shell
-npx ustart-cli@alpha init
+npx ustart-cli init
 ```
-
-> Note that the above instruction uses the alpha version.
 
 We use `npx` to avoid global installation of the CLI. Once npx finish the `ustart-cli` will be available as a local package by typing `npx ustart <command>`.
 
