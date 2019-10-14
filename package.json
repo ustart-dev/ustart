@@ -1,6 +1,6 @@
 {
   "name": "ustart",
-  "version": "2.0.0-alpha.5",
+  "version": "2.0.0",
   "description": "uStart is a NodeJS framework for building GraphQL backends using Apollo, Sequelize, Mongoose and other great tools.",
   "keywords": [
     "graphql",
