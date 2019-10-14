@@ -219,7 +219,7 @@ class Index extends React.Component {
     return (
       <div>
         <HomeSplash siteConfig={siteConfig} language={language} />
-        <Announcement />
+        {/*<Announcement />*/}
         <div className="mainContainer">
           <Features />
           {/*<FeatureCallout />*/}
