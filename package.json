@@ -46,6 +46,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
     "jest": "^22.4.3",
+    "mongoose": "^5.7.6",
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3"
   },
@@ -59,8 +60,5 @@
       "**/?(*.)+(spec|test).[jt]s?(x)"
     ],
     "testEnvironment": "node"
-  },
-  "optionalDependencies": {
-    "mongoose": "^5.7.6"
   }
 }
