@@ -10,6 +10,8 @@ This is the log of notable changes to the ustart core package.
 
 ### 🎉 New features
 
+- Added support to optional mongoose installation
+
 ### 🐛 Bug fixes
 
 ## 2.0

@@ -1,9 +1,10 @@
 'use strict';
 
 import Sequelize from "sequelize";
-import mongoose from "mongoose";
 import url from "url";
 import { Utils } from "../helpers/utils";
+
+const mongoose = Utils.require("mongoose");
 
 /**
  * Datasources connector.
@@ -39,9 +40,11 @@ class Ustart {
         this.migration = { datasource, uri };
       }
     } else if (library === "mongoose") {
-      this.datasources[datasource] = mongoose.connect(uri, options);
-      if (ustartOptions && ustartOptions.enableMigration) {
-        console.log("Migrations only works with Sequelize data sources.");
+      if (Utils.isPackageAvailable(mongoose, library)) {
+        this.datasources[datasource] = mongoose.connect(uri, options);
+        if (ustartOptions && ustartOptions.enableMigration) {
+          console.log("Migrations only works with Sequelize data sources.");
+        }
       }
     }
   }
@@ -73,12 +76,14 @@ class Ustart {
         options
       );
     } else if (library === "mongoose") {
-      // In this case, modelInstance must be a mongoose schema.
-      this.models[modelName] = mongoose.model(
-        modelName,
-        modelInstance,
-        options
-      );
+      if (Utils.isPackageAvailable(mongoose, library)) {
+        // In this case, modelInstance must be a mongoose schema.
+        this.models[modelName] = mongoose.model(
+          modelName,
+          modelInstance,
+          options
+        );
+      }
     }
   }
 

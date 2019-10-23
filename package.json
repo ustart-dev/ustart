@@ -30,7 +30,7 @@
     "build:dev": "npm run clean && babel src -d dist --copy-files",
     "build": "npm run clean && babel --copy-files --no-comments --minified src -d dist",
     "pack:test": "npm run build:dev && npm pack && mv ustart-*.tgz ../",
-    "test": "jest"
+    "test": "jest --setupFiles dotenv/config"
   },
   "dependencies": {
     "app-root-path": "^2.2.1",
@@ -38,7 +38,6 @@
     "graphql": "^14.5.3",
     "lodash": "^4.17.15",
     "merge-graphql-schemas": "^1.7.0",
-    "mongoose": "^5.6.9",
     "nodemailer": "^4.6.5",
     "sequelize": "^5.14.0"
   },
@@ -60,5 +59,8 @@
       "**/?(*.)+(spec|test).[jt]s?(x)"
     ],
     "testEnvironment": "node"
+  },
+  "optionalDependencies": {
+    "mongoose": "^5.7.6"
   }
 }

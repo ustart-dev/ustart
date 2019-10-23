@@ -38,4 +38,22 @@ describe("Server utils", () => {
       Utils.datasourceToLibrary(10)
     }).toThrow(/Wrong datasource type/);
   });
+
+  test("require", () => {
+    // Case 1: Require an available package.
+    expect(Utils.require("url")).toBeObject;
+
+    // Case 2: Require an unavailable package.
+    expect(Utils.require("nonexistent-module")).toBeNull;
+  });
+
+  test("isPackageAvailable", () => {
+    // Case 1: Require an available package.
+    const r1 = Utils.require("url");
+    expect(Utils.isPackageAvailable(r1, "url")).toBeTrue;
+
+    // Case 2: Require an unavailable package.
+    const r2 = Utils.require("nonexistent-module");
+    expect(Utils.isPackageAvailable(r2, "nonexistent-module")).toBeFalse;
+  });
 });
