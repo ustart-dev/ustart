@@ -47,13 +47,17 @@ describe("Server utils", () => {
     expect(Utils.require("nonexistent-module")).toBeNull;
   });
 
-  test("isPackageAvailable", () => {
+  test("checkPackageAvailability", () => {
     // Case 1: Require an available package.
     const r1 = Utils.require("url");
-    expect(Utils.isPackageAvailable(r1, "url")).toBeTrue;
+    expect(() => {
+      Utils.checkPackageAvailability(r1, "url")
+    }).not.toThrow(/You are trying to use a function that belongs to/);
 
     // Case 2: Require an unavailable package.
     const r2 = Utils.require("nonexistent-module");
-    expect(Utils.isPackageAvailable(r2, "nonexistent-module")).toBeFalse;
+    expect(() => {
+      Utils.checkPackageAvailability(r2, "nonexistent-module")
+    }).toThrow(/You are trying to use a function that belongs to/);
   });
 });
