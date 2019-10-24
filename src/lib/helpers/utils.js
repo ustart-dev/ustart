@@ -26,18 +26,6 @@ Utils.datasourceToLibrary = function (datasource) {
 };
 
 /**
- * Logs if a package is not available.
- * Returns true if mongoose is available; false otherwise.
-*/
-Utils.isPackageAvailable = function (module, moduleName) {
-  if (!module) {
-    console.log(`You are trying to use a function that belongs to ${moduleName} package, but none is installed.`);
-    return false;
-  }
-  return true;
-};
-
-/**
  * Throws an error if a package is not available.
 */
 Utils.checkPackageAvailability = function (module, moduleName) {
