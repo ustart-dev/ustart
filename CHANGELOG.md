@@ -11,6 +11,7 @@ This is the log of notable changes to the ustart core package.
 ### 🎉 New features
 
 - Added support to optional mongoose installation
+- Added support to optional sequelize installation
 
 ### 🐛 Bug fixes
 

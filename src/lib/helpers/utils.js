@@ -38,6 +38,15 @@ Utils.isPackageAvailable = function (module, moduleName) {
 };
 
 /**
+ * Throws an error if a package is not available.
+*/
+Utils.checkPackageAvailability = function (module, moduleName) {
+  if (!module) {
+    throw new Error(`You are trying to use a function that belongs to ${moduleName} package, but none is installed.`);
+  }
+};
+
+/**
  * Requires a module just like standard require does but instead of throwing
  * an error if module is not found it returns null.
 */

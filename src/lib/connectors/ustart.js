@@ -1,9 +1,9 @@
 'use strict';
 
-import Sequelize from "sequelize";
 import url from "url";
 import { Utils } from "../helpers/utils";
 
+const Sequelize = Utils.require("sequelize");
 const mongoose = Utils.require("mongoose");
 
 /**
@@ -35,6 +35,8 @@ class Ustart {
 
     const library = Utils.datasourceToLibrary(datasource);
     if (library === "sequelize") {
+      Utils.checkPackageAvailability(Sequelize, library);
+
       this.datasources[datasource] = new Sequelize(uri, options);
       if (ustartOptions && ustartOptions.enableMigration) {
         this.migration = { datasource, uri };
@@ -70,6 +72,8 @@ class Ustart {
 
     const library = Utils.datasourceToLibrary(datasource);
     if (library === "sequelize") {
+      Utils.checkPackageAvailability(Sequelize, library);
+
       this.models[modelName] = this.datasources[datasource].define(
         modelName,
         modelInstance,
