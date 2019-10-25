@@ -6,12 +6,19 @@ title: CLI Commands
 ## Initialize a project
 
 ```
-$ mkdir your-awesome-project
-$ cd your-awesome-project
-$ npx ustart-cli init
+$ npx ustart-cli init MyNewProject
+$ cd MyNewProject && npm start
 ```
 
 ## Usage
+
+*init* command usage:
+
+```
+$ npx ustart-cli init [project-name] [--mongoose | --no-mongoose] [--sequelize | --no-sequelize] [--shield | --no-shield]
+```
+
+After initialize a project using *init* command, the cli will be available locally:
 
 ```
 $ npx ustart --help
@@ -27,7 +34,14 @@ $ npx ustart migration:autogenerate --name "migration-name"
 
 ### `ustart-cli init`
 
-Initializes a project by creating the folder structure, JS scripts and installing npm dependencies. It requires an empty folder with NO package.json. After running this command the CLI will be available as a local package with `npx ustart <command>`.
+Initializes a project by creating the folder structure, JS scripts and installing npm dependencies. After running this command the CLI will be available as a local package with `npx ustart <command>`.
+
+Options | Default | Description
+------- | ------- | -----------
+`project-name` |  | Name of the project's folder. If no value is provided the CLI will use the current folder,  but it requires an empty one with NO package.json.
+`--mongoose` &#124; `--no--mongoose` |  | Set to install or not install mongoose during initialization. If no option is provided the CLI will prompt for a value.
+`--sequelize` &#124; `--no--sequelize` |  | Set to install or not install sequelize support during initialization. If no option is provided the CLI will prompt for a value.
+`--shield` &#124; `--no--shield` |  | Set to install or not install permission layer (graphql-shield) during initialization. If no option is provided the CLI will prompt for a value.
 
 ### `ustart build`
 

@@ -10,26 +10,19 @@ Ensure you have the latest [Node](https://nodejs.org/en/download/) installed
 
 > You have to be on Node >= 8.x
 
-Create a new folder for your project
+Create a new project using the CLI. The `init` command will ask you three questions: answer **no** to all of them. This will create the project structure and install all NPM dependencies for you
+
 ```shell
-mkdir awesome-project
-cd awesome-project
+npx ustart-cli init awesome-project
 ```
 
-Initialize with the ustart CLI. This will create the project structure and
-install all NPM dependencies for you
-```shell
-npx ustart-cli init
-```
-
-> Note that the above instruction uses the alpha version.
-
-We use `npx` to avoid global installation of the CLI. Once npx finish the `ustart-cli` will be available as a local package by typing `npx ustart <command>`.
+We use `npx` to avoid a global installation of the CLI. Once npx finish the `ustart-cli` will be available as a local package by typing `npx ustart <command>`.
 
 ## Verfying Installation
 
 Run your project
 ```shell
+cd awesome-project
 npm run start
 ```
 

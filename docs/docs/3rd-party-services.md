@@ -27,14 +27,13 @@ We take as reference the API created by [SWAPI-Wrapper](https://github.com/cfjed
 Initialize a new uStart project
 
 ```shell
-mkdir star-wars && cd $_
-npx ustart-cli init
+npx ustart-cli init star-wars --no-mongoose --no-sequelize --no-shield
 ```
 
 Once it is ready, we have to install [axios](https://github.com/axios/axios) as dependency.
 
 ```shell
-npm install axios
+cd star-wars && npm install axios
 ```
 
 > `axios` is a promise based HTTP client for the browser and node.js. It help us to query `swapi.co`.

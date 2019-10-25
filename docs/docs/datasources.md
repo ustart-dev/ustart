@@ -40,7 +40,7 @@ npm install --save pg pg-hstore
 npm install --save mariadb
 ```
 
-> You don't have to install Sequelize, it is installed by default when you executed `npx ustart-cli init`.
+> Sequelize support is installed by default if you say *yes* in the prompt while initializing the project with `npx ustart-cli init`, or explicitly using `npx ustart-cli init --sequelize` or by installing it yourself using `npx ustart install sequelize`.
 
 Inside `config/datasources.js` define your connections (you can use more than one):
 
@@ -63,7 +63,9 @@ More info about **URI** format on [Sequelize dialects](http://docs.sequelizejs.c
 
 ## NoSQL
 
-uStart uses [Mongoose v5](https://mongoosejs.com) to connect to [MongoDB](https://www.mongodb.com/). Mongoose is installed by default and no extra driver is needed.
+uStart uses [Mongoose v5](https://mongoosejs.com) to connect to [MongoDB](https://www.mongodb.com/).
+
+MongoDB support is installed by default if you say *yes* in the prompt while initializing the project with `npx ustart-cli init`, or explicitly using `npx ustart-cli init --mongoose` or by installing it yourself using `npx ustart install mongoose`. No extra driver is needed.
 
 ```js
 import { ustart } from "ustart";

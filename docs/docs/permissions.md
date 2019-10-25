@@ -3,7 +3,14 @@ id: permissions
 title: Permissions
 ---
 
-uStart comes with [Graphql shield](https://github.com/maticzav/graphql-shield) package installed by default, providing with seamless integration.
+uStart provides seamless integration with [Graphql shield](https://github.com/maticzav/graphql-shield) package which provides the permission layer.
+
+## Installation
+
+Graphql shield support is installed...
+* by default if you say *yes* in the prompt while initializing the project with `npx ustart-cli init`
+* or explicitly using `npx ustart-cli init --shield`
+* or by installing it yourself using `npx ustart install shield`
 
 ## Define Permissions
 

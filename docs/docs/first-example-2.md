@@ -7,16 +7,19 @@ Let's continue with the `Dog` example by adding a [Datasource](datasources.md). 
 
 ## Requirements
 
-Install PostgreSQL engine in your system, if you don't have already.
-You also need to install the PostgreSQL node drivers.
+First, we have to add support for RDBMS, uStart uses Sequelize 5 as ORM. In the [Installation](installation.md) section we said *no* to `Are you going to use PostgreSQL, MariaDB, MySQL or SQLite?`, so now we have to install Sequelize and all its friends ourself. Good news is we have created a command that does this for you:
 
-Move to the root of your project and execute:
+```js
+npx ustart install sequelize
+```
+
+You also need to install the PostgreSQL node drivers.
 
 ```bash
 npm install pg pg-hstore
 ```
 
-uStart uses Sequelize 5 to connect with relational databases and it is installed by default when you executed `npx ustart-cli init`.
+> Remember you need PostgreSQL engine in your system, install it if you don't have already.
 
 Now go to PostgreSQL (using whatever you use to manage it) and create a database. The database name must end with *\_test*. It is a name convention explained in [Datasources](datasources.md) section. In this example we are going to use **awesome-example_test**.
 
