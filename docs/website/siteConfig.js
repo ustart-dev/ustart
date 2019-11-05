@@ -111,7 +111,14 @@ const siteConfig = {
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-    repoUrl: 'https://github.com/ustart-dev/ustart',
+  repoUrl: 'https://github.com/ustart-dev/ustart',
+
+  // Algolia search
+  algolia: {
+    apiKey: '18e736bc88a7fcb9ff490ed829bdcd07',
+    indexName: 'ustart',
+    algoliaOptions: {} // Optional, if provided by Algolia
+  },
 };
 
 module.exports = siteConfig;
