@@ -133,3 +133,9 @@ Two entries are also included but they **should not** be executed directly:
 Both of them are used as part of *start* command: `npm start`.
 
 More information about the build process on [Build & Deploy](build-deploy.md) section.
+
+## Code quality
+
+To ensure code quality, your project is already configured to provide **linting** and **formatting** using the packages [husky](https://www.npmjs.com/package/husky), [lint-staged](https://www.npmjs.com/package/lint-staged) and [prettier-standard](https://github.com/sheerun/prettier-standard).
+
+To format your code base just run the script `npm run format`. To ensure you don't forget run it, we have added a hook that is executed before git commit, see "husky" entry at your `package.json`.
