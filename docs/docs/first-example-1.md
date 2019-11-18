@@ -81,7 +81,11 @@ Note that the default export `dogResolvers` is required by uStart.
 Now we are ready to test out our graphql backend.
 
 ```bash
+# direct execution
 npm start
+
+# or using docker
+docker-compose up
 ```
 
 Open your browser and enter to `localhost:4000`. Port `4000` is the default if you have not changed it in `.env` file. Once the playground is loaded you are ready to play!.

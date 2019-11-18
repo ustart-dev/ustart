@@ -3,9 +3,17 @@ id: build-deploy
 title: Build & Deploy
 ---
 
+## Docker
+
+A Dockerfile is provided to help you create your own image of your application. You can customize to your needs.
+
+For instance, once you have your project ready run ` docker build -t awesome-project .` to create your image (replace *awesome-project* for the image name). Then deploy it to your hosting solution.
+
+## Custom
+
 uStart provides a set of scripts to help you build and serve your app. These scripts can be invoked with the run command when using npm or the uStart command line (cli).
 
-## package.json
+### package.json
 
 The `npx ustart-cli init` command creates a package.json with the follow script entries to help you manage the build process:
 
@@ -23,7 +31,7 @@ At the moment, executing `npx ustart build --dev` does: `npm run build:dev` in t
 
 > This behavior will change in future releases in order to support a better process for building, testing and deploying.
 
-## Build
+### Build
 
 When you run `npm start` your code is built for development purpose using `build:dev`, then two scripts are executed concurrently: `watch-src` and `watch-node`. `watch-src` watches the *src* folder using babel, if any change is detected, it is compiled and copied to the *dist* folder. `watch-node` uses nodemon to watch `dist` folder, if any change is detected, nodemon will restart the server for you. This mode is for development only, **do not** use it on **production** environments.
 
@@ -35,11 +43,11 @@ To run your code for **production** use the `serve` command: `npm run serve`. Re
 
 > **Breaking change**: Prior to version 2.x, `npm serve` required you to set **NODE_ENV** to *production*. This is no longer required in version 2.0 because ustart module always loads your code from `dist` folder.
 
-## Packaging
+### Packaging
 
 To pack your project for deploying outside of your develop machine, use `npm pack` to create a `tgz` file. It will be named `your-project-name-X.Y.X.tgz` where X.Y.Z correspond to `version` attribute from `package.json`.
 
-## General process
+### General process
 
 The process for building and deploying looks like the follow:
 

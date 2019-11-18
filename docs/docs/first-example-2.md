@@ -49,7 +49,11 @@ PG_URI="postgres://localhost:5432/awesome-example_test"
 To verify the connection start the server:
 
 ```bash
+# direct execution
 npm start
+
+# or using docker
+docker-compose up
 ```
 
 Once it is ready you should see an output like this:

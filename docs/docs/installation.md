@@ -18,13 +18,42 @@ npx ustart-cli init awesome-project
 
 We use `npx` to avoid a global installation of the CLI. Once npx finish the `ustart-cli` will be available as a local package by typing `npx ustart <command>`.
 
-## Verfying Installation
+## Run the project
 
-Run your project
+uStart supports direct execution and docker containers. If you are under a Windows system use the Docker way.
+
+### UNIX and friends (Linux, OSX, etc)
+
+Run your project directly with NPM
+
 ```shell
 cd awesome-project
 npm run start
 ```
+
+
+### Docker (UNIX, Linux, OSX, Windows)
+
+First, create a volume using the terminal
+
+```shell
+cd awesome-project
+docker volume create nodemodules
+```
+
+Second, run the docker compose builder file with `install` flag
+
+```shell
+docker-compose -f docker-compose.builder.yml run --rm install
+```
+
+Third, run it
+
+```shell
+docker-compose up
+```
+
+## Verifying Installation
 
 If everything has gone well your console will log:
 ```
