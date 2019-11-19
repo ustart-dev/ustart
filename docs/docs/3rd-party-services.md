@@ -27,7 +27,7 @@ We take as reference the API created by [SWAPI-Wrapper](https://github.com/cfjed
 Initialize a new uStart project
 
 ```shell
-npx ustart-cli init star-wars --no-mongoose --no-sequelize --no-shield
+npx ustart-cli init star-wars --assumeno
 ```
 
 Once it is ready, we have to install [axios](https://github.com/axios/axios) as dependency.

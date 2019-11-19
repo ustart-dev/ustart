@@ -15,7 +15,7 @@ $ cd MyNewProject && npm start
 *init* command usage:
 
 ```
-$ npx ustart-cli init [project-name] [--mongoose | --no-mongoose] [--sequelize | --no-sequelize] [--shield | --no-shield]
+$ npx ustart-cli init <project-name> [--mongoose | --no-mongoose] [--sequelize | --no-sequelize] [--shield | --no-shield] [--assumeyes, --y] [--assumeno, --n]
 ```
 
 After initialize a project using *init* command, the cli will be available locally:
@@ -38,10 +38,12 @@ Initializes a project by creating the folder structure, JS scripts and installin
 
 Options | Default | Description
 ------- | ------- | -----------
-`project-name` |  | Name of the project's folder. If no value is provided the CLI will use the current folder,  but it requires an empty one with NO package.json.
+`project-name` |  | Project name. The CLI will create the folder.
 `--mongoose` &#124; `--no--mongoose` |  | Set to install or not install mongoose during initialization. If no option is provided the CLI will prompt for a value.
 `--sequelize` &#124; `--no--sequelize` |  | Set to install or not install sequelize support during initialization. If no option is provided the CLI will prompt for a value.
 `--shield` &#124; `--no--shield` |  | Set to install or not install permission layer (graphql-shield) during initialization. If no option is provided the CLI will prompt for a value.
+`--assumeyes, --y` |  | Assume yes; assume that the answer to any question which would be asked is yes.
+`--assumeno, --n` |  | Assume no; assume that the answer to any question which would be asked is no.
 
 ### `ustart build`
 

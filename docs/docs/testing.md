@@ -59,15 +59,13 @@ A `hello` example is included every time you create a new project.
 Create a new project. Let's name it `empty-example` and initialize it:
 
 ```shell
-mkdir empty-example
-cd empty-example
-npx ustart-cli init
+npx ustart-cli init empty-example --assumeno
 ```
 
 Start it:
 
 ```shell
-npm run start
+cd empty-example && npm run start
 ```
 
 Open a new terminal, go to the new project and run:
