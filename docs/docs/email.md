@@ -15,7 +15,7 @@ import { Email } from "ustart";
 
 The class reads from the `MAIL_URL` environment variable to determine how to send mail. The `MAIL_URL` should reference an SMTP server and use the form `smtp://USERNAME:PASSWORD@HOST:PORT` or `smtps://USERNAME:PASSWORD@HOST:PORT`. The `smtps://` form (the s is for “secure”) should be used if the mail server requires TLS/SSL (and does not use STARTTLS) and is most common on port 465. Connections which start unencrypted prior to being upgraded to TLS/SSL (using STARTTLS) typically use port 587 (and sometimes 25) and should use `smtp://`. For more information see the [Nodemailer docs](https://nodemailer.com).
 
-If `MAIL_URL` is not set, `Email.send` outputs the message to standard output instead. `EMAIL_URL` must be set in the [.env file](project-structure.md#env) of your project.
+If `MAIL_URL` is not set, `Email.send` outputs the message to standard output instead. `EMAIL_URL` must be set in the [.env file](project-overview.md#env) of your project.
 
 ```javascript
 Email.send(options);

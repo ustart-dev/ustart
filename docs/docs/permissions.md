@@ -61,4 +61,4 @@ There is a third file that allows you to customize the `graphql-shield` options.
 
 ## GraphQL Mocking
 
-If [FAST_MOCKING](project-structure.md#env) option is enabled, uStart will ignore all permissions files.
+If [FAST_MOCKING](project-overview.md#env) option is enabled, uStart will ignore all permissions files.
