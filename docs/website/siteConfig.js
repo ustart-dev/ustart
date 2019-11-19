@@ -119,6 +119,8 @@ const siteConfig = {
     indexName: 'ustart',
     // algoliaOptions: {} // Optional, if provided by Algolia
   },
+
+  scrollToTop: true
 };
 
 module.exports = siteConfig;
