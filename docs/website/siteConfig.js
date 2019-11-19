@@ -117,7 +117,7 @@ const siteConfig = {
   algolia: {
     apiKey: '18e736bc88a7fcb9ff490ed829bdcd07',
     indexName: 'ustart',
-    algoliaOptions: {} // Optional, if provided by Algolia
+    // algoliaOptions: {} // Optional, if provided by Algolia
   },
 };
 
