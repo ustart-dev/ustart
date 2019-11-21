@@ -8,6 +8,9 @@ This is the log of notable changes to the ustart core package.
 
 ### 🛠 Breaking changes
 
+- Migrated to babel v7.7
+- Migrated to Jest v23.6
+
 ### 🎉 New features
 
 - Added support to optional mongoose installation
