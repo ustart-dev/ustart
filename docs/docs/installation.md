@@ -8,9 +8,9 @@ sidebar_label: Installation
 
 Ensure you have the latest [Node](https://nodejs.org/en/download/) installed
 
-> You have to be on Node >= 8.x
+> You have to be on Node >= 8.x and Git
 
-Create a new project using the CLI. The `init` command will ask you three questions: answer **no** to all of them. This will create the project structure and install all NPM dependencies for you
+Create a new project using the CLI. The `init` command will ask you four questions: answer **no** to all of them. This will create the project structure and install all NPM dependencies for you
 
 ```shell
 npx ustart-cli init awesome-project

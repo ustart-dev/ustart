@@ -15,7 +15,7 @@ $ cd MyNewProject && npm start
 *init* command usage:
 
 ```
-$ npx ustart-cli init <project-name> [--mongoose | --no-mongoose] [--sequelize | --no-sequelize] [--shield | --no-shield] [--assumeyes, --y] [--assumeno, --n]
+$ npx ustart-cli init <project-name> [--mongoose | --no-mongoose] [--sequelize | --no-sequelize] [--shield | --no-shield] [--gitinit | --no-gitinit] [--assumeyes, --y] [--assumeno, --n]
 ```
 
 After initialize a project using *init* command, the cli will be available locally:
@@ -42,6 +42,7 @@ Options | Default | Description
 `--mongoose` &#124; `--no--mongoose` |  | Set to install or not install mongoose during initialization. If no option is provided the CLI will prompt for a value.
 `--sequelize` &#124; `--no--sequelize` |  | Set to install or not install sequelize support during initialization. If no option is provided the CLI will prompt for a value.
 `--shield` &#124; `--no--shield` |  | Set to install or not install permission layer (graphql-shield) during initialization. If no option is provided the CLI will prompt for a value.
+`--gitinit` &#124; `--no-gitinit` |  | Set to init the project as a git repository. Husky package require it to its successful configuration. If no option is provided the CLI will prompt for a value.
 `--assumeyes, --y` |  | Assume yes; assume that the answer to any question which would be asked is yes.
 `--assumeno, --n` |  | Assume no; assume that the answer to any question which would be asked is no.
 
