@@ -37,7 +37,7 @@ When you run `npm start` your code is built for development purpose using `build
 
 > **Breaking change**: Prior to version 2.x, `npm start` use `nodemon` and `babel-node` to run your app. It also required you to set **NODE_ENV** distinct to *production*, in this way ustart module loaded your project from `src` folder.
 
-`npx ustart build` compile your project sources into the `dist` folder at the root of your project. It uses babel 6 to compile, also apply code minification and comment removal. Add `--dev` option to keep code comments and not minify.
+`npx ustart build` compile your project sources into the `dist` folder at the root of your project. It uses babel 7 to compile, also apply code minification and comment removal. Add `--dev` option to keep code comments and not minify.
 
 To run your code for **production** use the `serve` command: `npm run serve`. Remember to build it before.
 
