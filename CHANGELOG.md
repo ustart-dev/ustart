@@ -15,6 +15,7 @@ This is the log of notable changes to the ustart core package.
 
 - Added support to optional mongoose installation
 - Added support to optional sequelize installation
+- Renamed environmental var GRAPHQL_ENDPOINT_PORT to PORT
 
 ### 🐛 Bug fixes
 
